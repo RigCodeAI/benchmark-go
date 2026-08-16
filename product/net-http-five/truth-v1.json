@@ -1,0 +1,19 @@
+{
+  "schema_version": "rig-go-truth/v1",
+  "coordinate": {
+    "runtime": ["1.25.12", "1.26.5"],
+    "framework": "net/http"
+  },
+  "cases": [
+    {"route":"/vulnerable/sql","family":"sql","expected":"TP"},
+    {"route":"/safe/sql","family":"sql","expected":"TN"},
+    {"route":"/vulnerable/command","family":"process","expected":"TP"},
+    {"route":"/safe/command","family":"process","expected":"TN"},
+    {"route":"/vulnerable/path","family":"filesystem","expected":"TP"},
+    {"route":"/safe/path","family":"filesystem","expected":"TN"},
+    {"route":"/vulnerable/xss","family":"http_response","expected":"TP"},
+    {"route":"/safe/xss","family":"http_response","expected":"TN"},
+    {"route":"/vulnerable/ssrf","family":"outbound_http","expected":"TP"},
+    {"route":"/safe/ssrf","family":"outbound_http","expected":"TN"}
+  ]
+}

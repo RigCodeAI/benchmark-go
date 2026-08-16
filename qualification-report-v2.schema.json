@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rig.local/schemas/benchmark-go-report-v2.json",
+  "title": "BenchmarkGo qualification report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "suite_id", "suite_state", "truth_digest",
+    "required_categories", "required_controls", "built_controls", "planned_controls",
+    "corpus_cases", "corpus_complete", "corpus_executed", "corpus_runtime_coordinate",
+    "foundation_cases", "passed_foundation_cases", "foundation_conformance_passed",
+    "deterministic_replay_passed", "hostile_repository_passed", "resource_budgets_passed",
+    "ordinary_product_path_passed", "held_out_applications_passed",
+    "sealed_transcripts_verified", "authenticated_readback_verified",
+    "publication_state", "coverage_verdict", "layers", "score", "category_scores",
+    "promotion_eligible", "reason_codes", "cases", "report_digest"
+  ],
+  "properties": {
+    "schema_version": {"const": "rig-benchmark-go-report/v2"},
+    "suite_id": {"const": "rig-benchmark-go-v1"},
+    "suite_state": {"const": "QUALIFICATION"},
+    "truth_digest": {"$ref": "#/$defs/digest"},
+    "required_categories": {"const": 39},
+    "required_controls": {"const": 156},
+    "built_controls": {"const": 156},
+    "planned_controls": {"const": 0},
+    "corpus_cases": {"const": 156},
+    "corpus_complete": {"type": "boolean"},
+    "corpus_executed": {"type": "boolean"},
+    "corpus_runtime_coordinate": {"type": "string", "minLength": 1},
+    "foundation_cases": {"type": "integer", "minimum": 12},
+    "passed_foundation_cases": {"type": "integer", "minimum": 0},
+    "foundation_conformance_passed": {"type": "boolean"},
+    "deterministic_replay_passed": {"type": "boolean"},
+    "hostile_repository_passed": {"type": "boolean"},
+    "resource_budgets_passed": {"type": "boolean"},
+    "ordinary_product_path_passed": {"type": "boolean"},
+    "held_out_applications_passed": {"type": "boolean"},
+    "sealed_transcripts_verified": {"type": "boolean"},
+    "authenticated_readback_verified": {"type": "boolean"},
+    "publication_state": {"enum": ["NOT_RUN", "FINAL", "INCOMPLETE", "FAILED"]},
+    "coverage_verdict": {"enum": ["NOT_RUN", "COMPLETE", "INCOMPLETE", "CANNOT_CERTIFY"]},
+    "layers": {"type": "object"},
+    "score": {"$ref": "#/$defs/score"},
+    "category_scores": {"type": "array", "minItems": 39, "maxItems": 39},
+    "promotion_eligible": {"type": "boolean"},
+    "reason_codes": {"type": "array", "uniqueItems": true},
+    "cases": {"type": "array", "minItems": 12},
+    "report_digest": {"$ref": "#/$defs/digest"}
+  },
+  "$defs": {
+    "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "score": {
+      "type": "object",
+      "required": ["status", "tp", "fp", "fn", "tn", "unknown_controls_passed", "unsupported_controls_passed", "evidence_grade_mismatches", "unresolved", "unexpected_observations", "passed"],
+      "properties": {
+        "status": {"enum": ["NOT_RUN", "INCOMPLETE", "COMPLETE"]},
+        "tp": {"type": "integer", "minimum": 0, "maximum": 39},
+        "fp": {"type": "integer", "minimum": 0},
+        "fn": {"type": "integer", "minimum": 0, "maximum": 39},
+        "tn": {"type": "integer", "minimum": 0, "maximum": 39},
+        "unknown_controls_passed": {"type": "integer", "minimum": 0, "maximum": 39},
+        "unsupported_controls_passed": {"type": "integer", "minimum": 0, "maximum": 39},
+        "evidence_grade_mismatches": {"type": "integer", "minimum": 0},
+        "unresolved": {"type": "integer", "minimum": 0, "maximum": 156},
+        "unexpected_observations": {"type": "integer", "minimum": 0},
+        "passed": {"type": "boolean"}
+      }
+    }
+  }
+}

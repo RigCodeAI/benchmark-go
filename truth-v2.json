@@ -1,0 +1,1827 @@
+{
+  "schema_version": "rig-benchmark-go-truth/v2",
+  "suite_id": "rig-benchmark-go-v1",
+  "suite_state": "QUALIFICATION",
+  "support_policy": "native-runtime/crates/language/data/support-policy-v1.json",
+  "exact_family": {
+    "runtime_coordinates": [
+      "go-1.25.12-darwin-arm64",
+      "go-1.25.12-linux-amd64",
+      "go-1.26.5-darwin-arm64",
+      "go-1.26.5-linux-amd64"
+    ],
+    "framework_coordinates": [
+      "net-http-go-1.25.12",
+      "net-http-go-1.26.5",
+      "gin-1.12.0-go-1.26.5"
+    ],
+    "adapter_family": "go-build-wrapper-v1"
+  },
+  "language_corpus": {
+    "path": "corpus/language",
+    "manifest": "corpus/language/go.mod",
+    "binary": "rig-benchmark-go-language-corpus",
+    "required_categories": 39,
+    "controls_per_category": 4,
+    "expected_stdout": "BenchmarkGo language corpus: categories=39 controls=156 vulnerable=39 safe=39 unknown=39 unsupported=39"
+  },
+  "source_digests": {
+    "apps/gin-coordinate/go.mod": "sha256:c566f270c4d076ed1286a1aa0c1b595fddf02ad06ba4a936d4540732ea2165ff",
+    "apps/gin-coordinate/main.go": "sha256:2a8afbf171a79269a9b0c91b5f288df2b6f5499c62060af3fa65b8339ccfd157",
+    "apps/gin-product/.rig.json": "sha256:1e99d5e6217ac9335f29c3ea0ecc06f24c456844dda99f59f1e71e2ee439e6ae",
+    "apps/gin-product/application_test.go": "sha256:ff2599fe9a41b78c33436852ebfd564e12aecb2c401c637db7c097a69fcb844b",
+    "apps/gin-product/cgo_boundary.go": "sha256:c62d6759d6101ef81526fd5001dd29ec58fdcd849c3cec9f04cd1014a9fa891c",
+    "apps/gin-product/controller.go": "sha256:afa7c79fe483f81f7712a84962666ea92836a36ca631d00c482af82c3888bd1b",
+    "apps/gin-product/go.mod": "sha256:534ed4a7595cec1cdf5ad460ca664a23a8827c7690af363b6e02bc0c9ef58178",
+    "apps/gin-product/go.sum": "sha256:2653d40976ff6cbc2dec9e0e640974836d35c5e45902d194d56d5b995ace1985",
+    "apps/gin-product/main.go": "sha256:15377f3a4cfe46d60ef747006695c7ad2815b0d729a5ecc897166318fa3de549",
+    "apps/gin-product/routes_explicit.go": "sha256:2170e35d0eb43a1621d27702037d7a58434aa6193492b521181e9f545e04bfa2",
+    "apps/gin-product/semantics.go": "sha256:94ebab3e6363745e58d7fa6cbf774a71d78ff9c47c8164ef48ad2752d869ab9e",
+    "apps/gin-product/sources.go": "sha256:ed7869f411defa6d47f148af86ad858493f223793bad21af5396119575c34790",
+    "apps/net-http-product/.rig.json": "sha256:1e99d5e6217ac9335f29c3ea0ecc06f24c456844dda99f59f1e71e2ee439e6ae",
+    "apps/net-http-product/application_test.go": "sha256:3e391004b0d105ee25a02cb134a35a74d47adc3d9d82de69a9a6bccf36ac7173",
+    "apps/net-http-product/cgo_boundary.go": "sha256:c62d6759d6101ef81526fd5001dd29ec58fdcd849c3cec9f04cd1014a9fa891c",
+    "apps/net-http-product/controller.go": "sha256:81940089ac34ef983ea710cf94ec8a4d781c637984f949b7bd24f8d9dfab7d4e",
+    "apps/net-http-product/go.mod": "sha256:3f54d7fb4f65243a5d7499bb1da2f0237fe12e727aa74cfed435acddebfb71e6",
+    "apps/net-http-product/main.go": "sha256:c8ff34a829ba037b502ce5cfd00cbd844f292a1b8f088639e8281a6a479a95eb",
+    "apps/net-http-product/routes_explicit.go": "sha256:6e19f86d6c029de610501e93bfb4d0452c28ef6631250f7935145ac0e21c265a",
+    "apps/net-http-product/semantics.go": "sha256:94ebab3e6363745e58d7fa6cbf774a71d78ff9c47c8164ef48ad2752d869ab9e",
+    "apps/net-http-product/sources.go": "sha256:7a96d2e6eb69e992b539138a72c21908d5c68c111f11cda40f054a9697e3af1e",
+    "apps/net-http-source-breadth/go.mod": "sha256:9dfe349cf58543fa01bb44b0ebe0f1823d73b10d74b8e516dabd09265b70fbaa",
+    "apps/net-http-source-breadth/main.go": "sha256:a565205451aaa5851766aac0ff4ebe76ea1ab39d8db3d9e10886848c22afa030",
+    "controls/build-tags/go.mod": "sha256:e74727c48f584d3a51eb0112247dd5829e06ad747ccb44796c7ee75f212162a2",
+    "controls/build-tags/main.go": "sha256:5101a3b7338525739fd8ef7ea1d314d55230c1fa412b608cf5652ab7ec9970e0",
+    "controls/build-tags/optional.go": "sha256:eb5eba1e87a87b9e1fea9db2434cd1580c3fb819ef184c9b8554aa1e79386d02",
+    "controls/cgo-boundary/go.mod": "sha256:a1e18c34ca3065551c3545224877b5b8e8b8fb53f7c61ffb4e37ccf36a259eb1",
+    "controls/cgo-boundary/main.go": "sha256:b4e2762b16a9695daad983808c947042547353512b313f09806bf1c769a09f41",
+    "controls/dynamic-route/go.mod": "sha256:48a36afa442337a3d97aeb276ae259bc0888dbb82be1db571916973cb457b91a",
+    "controls/dynamic-route/main.go": "sha256:593bd2e7ec03dde37cf289c8c68e5c3bba5fc0fdb54871d2a9ac24004db12fbb",
+    "controls/generate-directive/go.mod": "sha256:fcc09a3724c790c0cbc98bfaf969930f0e40e0b1582417aa9c8bc302e01563f4",
+    "controls/generate-directive/main.go": "sha256:7d250c375a017bc8321265687720a7210ab3e2c2398f0730564b3ffba7f9cf4b",
+    "controls/module-replace/go.mod": "sha256:37e0de9d5493beda5c5ad0035ad7b79d5d6a5239714483f1f56d9687c2520054",
+    "controls/module-replace/main.go": "sha256:04a0b4b9ac641b0203c37664b06f162d7c5b3e98bcf427d1bbcc540b0b366ed7",
+    "controls/provider-spoof/go.mod": "sha256:4f9f5ed1e0cb9662da10a2a38a9797f4530a052ad88d3b00fae4d70e311cf4ab",
+    "controls/provider-spoof/main.go": "sha256:c15daf9b1fe5c319efde70aa02d21157ceb95575ae7b57f1e53eb0f104303cdc",
+    "controls/unqualified-coordinate/go.mod": "sha256:4327fee393b3c4aa83d1fa03de3ee04ca168e46beaf9f37f33208198463901e9",
+    "controls/unqualified-coordinate/main.go": "sha256:eee7789d67d2236876f82c7980ae072f2a53133503c15108f8a63d4f0ce66ec7",
+    "corpus/language/categories_access.go": "sha256:6a176c5923e0a1ed86360ae3902239db02d48490e18999bbfc27f6fb809b7563",
+    "corpus/language/categories_availability.go": "sha256:1bdee99e9a351097ab8895a278c1a0d544409adeb4d98bbea7f8671e1e86c9dc",
+    "corpus/language/categories_data.go": "sha256:4f7a5d91b40fa82721898992f0d97c4e9b231a206a8917cde0b4c40735bb4b7b",
+    "corpus/language/categories_go.go": "sha256:133156d44c0ea0b5007e841d3c300e4f89b5711b132a4ac47fb413be6aef5939",
+    "corpus/language/categories_injection.go": "sha256:5361b855e13fa9ee51f78aa2ef378fa072cad6942af7ee7fb5962161391da062",
+    "corpus/language/cmd/rig-benchmark-go-language-corpus/main.go": "sha256:505a08ecf9db5995f0c93404bf90046f53e1142f4ce905551210f82fa7c9d411",
+    "corpus/language/corpus.go": "sha256:7257012ddb6d9b222ec69093c918eddab900d3de84cfb37300fb8c161f28d9f8",
+    "corpus/language/corpus_test.go": "sha256:5a63bf7e4c3cbb88a68b47af684de20a90401338249a2445e7aa2c957d908f9a",
+    "corpus/language/go.mod": "sha256:72d14b39ad81c51f7fc5f5a63364179bfa209a6725ad598a0d238b903d236153",
+    "corpus/language/model.go": "sha256:7d954962dab672296ee0632f478289293bf2bf1b90e56fe6a156d420af5764fb",
+    "corpus/language/semantics.go": "sha256:1acd95a7fb08d49baffa37b309251fa51827d8008f9089cf358a750f3a6bfdcc",
+    "product-evidence-v1.schema.json": "sha256:5ed6631e0340f4ae30fa6a35cdf7dec97dc03406a21918a2e57537bf445e0bb9",
+    "product/net-http-five/go.mod": "sha256:b343c43e1a6a821b1d73f460261fb06adb2b17d82ad27339690ecf01ab1ba0e8",
+    "product/net-http-five/main.go": "sha256:5afbaf697f38ea5d5f3c5fe3d75efae53b5ff8412016854c3e7e172f8c0eaf32",
+    "product/net-http-five/truth-v1.json": "sha256:45481beaff66016298cdbb66c63a8bc672481d99a3d046c670c3083ac3846350",
+    "qualification-report-v2.schema.json": "sha256:080c14dec4d70d983bbe79424f95044f4714b4cce1e90f0d2265b5d2ce416503"
+  },
+  "repositories": [
+    {
+      "repository_id": "net-http-product",
+      "path": "product/net-http-five",
+      "role": "ORDINARY_PRODUCT_APPLICATION"
+    },
+    {
+      "repository_id": "net-http-sources",
+      "path": "apps/net-http-source-breadth",
+      "role": "ORDINARY_PRODUCT_APPLICATION"
+    },
+    {
+      "repository_id": "gin-coordinate",
+      "path": "apps/gin-coordinate",
+      "role": "UNKNOWN_CONTROL"
+    },
+    {
+      "repository_id": "gin-product",
+      "path": "apps/gin-product",
+      "role": "ORDINARY_PRODUCT_APPLICATION"
+    },
+    {
+      "repository_id": "dynamic-route",
+      "path": "controls/dynamic-route",
+      "role": "UNKNOWN_CONTROL"
+    },
+    {
+      "repository_id": "provider-spoof",
+      "path": "controls/provider-spoof",
+      "role": "HOSTILE_CONTROL"
+    },
+    {
+      "repository_id": "unqualified-coordinate",
+      "path": "controls/unqualified-coordinate",
+      "role": "UNSUPPORTED_CONTROL"
+    },
+    {
+      "repository_id": "generate-directive",
+      "path": "controls/generate-directive",
+      "role": "HOSTILE_CONTROL"
+    },
+    {
+      "repository_id": "module-replace",
+      "path": "controls/module-replace",
+      "role": "HOSTILE_CONTROL"
+    },
+    {
+      "repository_id": "build-tags",
+      "path": "controls/build-tags",
+      "role": "UNKNOWN_CONTROL"
+    },
+    {
+      "repository_id": "cgo-boundary",
+      "path": "controls/cgo-boundary",
+      "role": "UNKNOWN_CONTROL"
+    },
+    {
+      "repository_id": "go-product",
+      "path": "apps/net-http-product",
+      "role": "ORDINARY_PRODUCT_APPLICATION"
+    }
+  ],
+  "source_cases": [
+    {
+      "route": "/sources/query",
+      "logical_location": "query",
+      "transport_location": "query",
+      "field": "value"
+    },
+    {
+      "route": "/sources/path/{value}",
+      "logical_location": "path",
+      "transport_location": "path",
+      "field": "value"
+    },
+    {
+      "route": "/sources/form",
+      "logical_location": "form",
+      "transport_location": "form",
+      "field": "value"
+    },
+    {
+      "route": "/sources/json",
+      "logical_location": "json",
+      "transport_location": "json",
+      "field": "value"
+    },
+    {
+      "route": "/sources/header",
+      "logical_location": "header",
+      "transport_location": "header",
+      "field": "x-rig-source"
+    },
+    {
+      "route": "/sources/cookie",
+      "logical_location": "cookie",
+      "transport_location": "cookie",
+      "field": "rig_source"
+    },
+    {
+      "route": "/sources/multipart",
+      "logical_location": "multipart",
+      "transport_location": "multipart",
+      "field": "value"
+    },
+    {
+      "route": "/sources/body",
+      "logical_location": "body",
+      "transport_location": "body",
+      "field": "body"
+    },
+    {
+      "route": "/sources/middleware",
+      "logical_location": "middleware",
+      "transport_location": "header",
+      "field": "x-rig-middleware"
+    },
+    {
+      "route": "/sources/context",
+      "logical_location": "context",
+      "transport_location": "header",
+      "field": "x-rig-context"
+    },
+    {
+      "route": "/sources/principal",
+      "logical_location": "principal",
+      "transport_location": "header",
+      "field": "authorization",
+      "requires_auth": true
+    }
+  ],
+  "categories": [
+    {
+      "category": "CWE-113",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-116",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-1336",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-200",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_VALUE_FLOW",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-201",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_VALUE_FLOW",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-22",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_EFFECT",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-284",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-287",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-306",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-328",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_PROPERTY",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-330",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_PROPERTY",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-352",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-362",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-400",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_EFFECT",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-501",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_VALUE_FLOW",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-502",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_SEMANTIC",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-532",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_VALUE_FLOW",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-601",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-611",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_EFFECT",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-614",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_PROPERTY",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-639",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-643",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_SEMANTIC",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-776",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_EFFECT",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-78",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-79",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-840",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-841",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-862",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-863",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-89",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-90",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-918",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_EFFECT",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-94",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_EFFECT",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "CWE-943",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_SEMANTIC",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "GO-CGO-BOUNDARY",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_MEMORY",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "GO-GOROUTINE-LEAK",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_EFFECT",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "GO-HTTP-BODY-LIMIT",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_PROPERTY",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "GO-MAP-CONCURRENT-ACCESS",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    },
+    {
+      "category": "GO-TEMPLATE-CONTEXT-CONFUSION",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_SEMANTIC",
+      "controls": {
+        "safe": "BUILT",
+        "unknown": "BUILT",
+        "unsupported": "BUILT",
+        "vulnerable": "BUILT"
+      }
+    }
+  ],
+  "foundation_cases": [
+    {
+      "case_id": "net-http-product-inventory",
+      "repository_id": "net-http-product",
+      "expectation": {
+        "kind": "INVENTORY",
+        "status": "READY",
+        "framework": "net/http",
+        "reason_code": null
+      }
+    },
+    {
+      "case_id": "net-http-source-inventory",
+      "repository_id": "net-http-sources",
+      "expectation": {
+        "kind": "INVENTORY",
+        "status": "READY",
+        "framework": "net/http",
+        "reason_code": null
+      }
+    },
+    {
+      "case_id": "source-query",
+      "repository_id": "net-http-sources",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "main.go",
+        "text": "URL.Query().Get"
+      }
+    },
+    {
+      "case_id": "source-path",
+      "repository_id": "net-http-sources",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "main.go",
+        "text": "PathValue"
+      }
+    },
+    {
+      "case_id": "source-form",
+      "repository_id": "net-http-sources",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "main.go",
+        "text": "FormValue"
+      }
+    },
+    {
+      "case_id": "source-json",
+      "repository_id": "net-http-sources",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "main.go",
+        "text": "json.NewDecoder"
+      }
+    },
+    {
+      "case_id": "source-header",
+      "repository_id": "net-http-sources",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "main.go",
+        "text": "Header.Get"
+      }
+    },
+    {
+      "case_id": "source-cookie",
+      "repository_id": "net-http-sources",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "main.go",
+        "text": "request.Cookie"
+      }
+    },
+    {
+      "case_id": "source-multipart",
+      "repository_id": "net-http-sources",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "main.go",
+        "text": "ParseMultipartForm"
+      }
+    },
+    {
+      "case_id": "source-body",
+      "repository_id": "net-http-sources",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "main.go",
+        "text": "io.ReadAll"
+      }
+    },
+    {
+      "case_id": "source-principal",
+      "repository_id": "net-http-sources",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "main.go",
+        "text": "Authorization"
+      }
+    },
+    {
+      "case_id": "gin-coordinate-ready",
+      "repository_id": "gin-coordinate",
+      "expectation": {
+        "kind": "INVENTORY",
+        "status": "READY",
+        "framework": "github.com/gin-gonic/gin",
+        "reason_code": null
+      }
+    },
+    {
+      "case_id": "gin-product-inventory",
+      "repository_id": "gin-product",
+      "expectation": {
+        "kind": "INVENTORY",
+        "status": "READY",
+        "framework": "github.com/gin-gonic/gin",
+        "reason_code": null
+      }
+    },
+    {
+      "case_id": "gin-product-route-contract",
+      "repository_id": "gin-product",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "semantics.go",
+        "text": "GET /qualification/cwe-89/vulnerable"
+      }
+    },
+    {
+      "case_id": "gin-product-controller-contract",
+      "repository_id": "gin-product",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": ".rig.json",
+        "text": "cwe-841-vulnerable"
+      }
+    },
+    {
+      "case_id": "dynamic-route-preserved",
+      "repository_id": "dynamic-route",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "main.go",
+        "text": "method+\" \"+path"
+      }
+    },
+    {
+      "case_id": "provider-spoof-preserved",
+      "repository_id": "provider-spoof",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "main.go",
+        "text": "type spoofDatabase struct"
+      }
+    },
+    {
+      "case_id": "unqualified-coordinate-preserved",
+      "repository_id": "unqualified-coordinate",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "go.mod",
+        "text": "toolchain go1.27.0"
+      }
+    },
+    {
+      "case_id": "generator-not-executed",
+      "repository_id": "generate-directive",
+      "expectation": {
+        "kind": "FILE_ABSENT",
+        "path": "rig-must-not-execute-generation"
+      }
+    },
+    {
+      "case_id": "generator-directive-preserved",
+      "repository_id": "generate-directive",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "main.go",
+        "text": "go:generate"
+      }
+    },
+    {
+      "case_id": "module-replace-preserved",
+      "repository_id": "module-replace",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "go.mod",
+        "text": "replace example.invalid/provider"
+      }
+    },
+    {
+      "case_id": "build-tag-preserved",
+      "repository_id": "build-tags",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "optional.go",
+        "text": "go:build rig_unknown_feature"
+      }
+    },
+    {
+      "case_id": "cgo-fails-closed",
+      "repository_id": "cgo-boundary",
+      "expectation": {
+        "kind": "INVENTORY",
+        "status": "BLOCKED",
+        "framework": null,
+        "reason_code": "go_net_http_framework_unresolved"
+      }
+    },
+    {
+      "case_id": "cgo-boundary-preserved",
+      "repository_id": "cgo-boundary",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "main.go",
+        "text": "import \"C\""
+      }
+    },
+    {
+      "case_id": "go-product-inventory",
+      "repository_id": "go-product",
+      "expectation": {
+        "kind": "INVENTORY",
+        "status": "READY",
+        "framework": "net/http",
+        "reason_code": null
+      }
+    },
+    {
+      "case_id": "go-product-route-contract",
+      "repository_id": "go-product",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": "semantics.go",
+        "text": "GET /qualification/cwe-89/vulnerable"
+      }
+    },
+    {
+      "case_id": "go-product-controller-contract",
+      "repository_id": "go-product",
+      "expectation": {
+        "kind": "FILE_CONTAINS",
+        "path": ".rig.json",
+        "text": "cwe-841-vulnerable"
+      }
+    }
+  ],
+  "promotion_requirements": {
+    "ordinary_product_path": true,
+    "held_out_applications": true,
+    "sealed_transcripts_verified": true,
+    "authenticated_readback_verified": true,
+    "deterministic_replay_verified": true,
+    "hostile_repository_suite_passed": true,
+    "resource_budgets_verified": true,
+    "minimum_held_out_applications": 3,
+    "minimum_held_out_vulnerable_categories": 39,
+    "minimum_held_out_safe_categories": 39,
+    "maximum_corpus_execution_ms": 5000,
+    "maximum_source_files": 20000,
+    "maximum_source_file_bytes": 4194304,
+    "maximum_total_source_bytes": 268435456,
+    "required_publication_state": "FINAL",
+    "required_coverage_verdict": "COMPLETE",
+    "maximum_false_positives": 0,
+    "maximum_false_negatives": 0
+  },
+  "product_cases": [
+    {
+      "case_id": "cwe-113-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-113/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "http_response",
+      "rule_id": "IAST.HTTP_HEADER.INJECTION"
+    },
+    {
+      "case_id": "cwe-113-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-113/safe",
+      "control": "safe",
+      "sink_family": "http_response"
+    },
+    {
+      "case_id": "cwe-113-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-113/unknown",
+      "control": "unknown",
+      "sink_family": "http_response",
+      "reason_code": "go_cwe_113_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-116-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-116/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "output_encoding",
+      "rule_id": "IAST.OUTPUT_ENCODING.INJECTION"
+    },
+    {
+      "case_id": "cwe-116-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-116/safe",
+      "control": "safe",
+      "sink_family": "output_encoding"
+    },
+    {
+      "case_id": "cwe-116-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-116/unknown",
+      "control": "unknown",
+      "sink_family": "output_encoding",
+      "reason_code": "go_cwe_116_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-1336-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-1336/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "template",
+      "rule_id": "IAST.TEMPLATE.INJECTION"
+    },
+    {
+      "case_id": "cwe-1336-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-1336/safe",
+      "control": "safe",
+      "sink_family": "template"
+    },
+    {
+      "case_id": "cwe-1336-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-1336/unknown",
+      "control": "unknown",
+      "sink_family": "template",
+      "reason_code": "go_cwe_1336_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-200-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-200/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "sensitive_data",
+      "rule_id": "IAST.SENSITIVE_DATA.RESPONSE_EXPOSURE"
+    },
+    {
+      "case_id": "cwe-200-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-200/safe",
+      "control": "safe",
+      "sink_family": "sensitive_data"
+    },
+    {
+      "case_id": "cwe-200-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-200/unknown",
+      "control": "unknown",
+      "sink_family": "sensitive_data",
+      "reason_code": "go_cwe_200_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-201-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-201/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "sensitive_data",
+      "rule_id": "IAST.SENSITIVE_DATA.OUTBOUND_EXPOSURE"
+    },
+    {
+      "case_id": "cwe-201-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-201/safe",
+      "control": "safe",
+      "sink_family": "sensitive_data"
+    },
+    {
+      "case_id": "cwe-201-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-201/unknown",
+      "control": "unknown",
+      "sink_family": "sensitive_data",
+      "reason_code": "go_cwe_201_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-22-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-22/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "filesystem",
+      "rule_id": "IAST.FILESYSTEM.INJECTION"
+    },
+    {
+      "case_id": "cwe-22-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-22/safe",
+      "control": "safe",
+      "sink_family": "filesystem"
+    },
+    {
+      "case_id": "cwe-22-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-22/unknown",
+      "control": "unknown",
+      "sink_family": "filesystem",
+      "reason_code": "go_cwe_22_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-328-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-328/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "hash_algorithm",
+      "rule_id": "IAST.CRYPTO.WEAK_HASH"
+    },
+    {
+      "case_id": "cwe-328-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-328/safe",
+      "control": "safe",
+      "sink_family": "hash_algorithm"
+    },
+    {
+      "case_id": "cwe-328-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-328/unknown",
+      "control": "unknown",
+      "sink_family": "hash_algorithm",
+      "reason_code": "go_cwe_328_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-330-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-330/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "random_generator",
+      "rule_id": "IAST.CRYPTO.WEAK_RANDOM"
+    },
+    {
+      "case_id": "cwe-330-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-330/safe",
+      "control": "safe",
+      "sink_family": "random_generator"
+    },
+    {
+      "case_id": "cwe-330-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-330/unknown",
+      "control": "unknown",
+      "sink_family": "random_generator",
+      "reason_code": "go_cwe_330_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-400-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-400/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "resource_exhaustion",
+      "rule_id": "IAST.RESOURCE.EXHAUSTION"
+    },
+    {
+      "case_id": "cwe-400-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-400/safe",
+      "control": "safe",
+      "sink_family": "resource_exhaustion"
+    },
+    {
+      "case_id": "cwe-400-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-400/unknown",
+      "control": "unknown",
+      "sink_family": "resource_exhaustion",
+      "reason_code": "go_cwe_400_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-501-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-501/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "trust_boundary",
+      "rule_id": "IAST.TRUST_BOUNDARY.INJECTION"
+    },
+    {
+      "case_id": "cwe-501-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-501/safe",
+      "control": "safe",
+      "sink_family": "trust_boundary"
+    },
+    {
+      "case_id": "cwe-501-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-501/unknown",
+      "control": "unknown",
+      "sink_family": "trust_boundary",
+      "reason_code": "go_cwe_501_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-502-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-502/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "deserialization",
+      "rule_id": "IAST.DESERIALIZATION.INJECTION"
+    },
+    {
+      "case_id": "cwe-502-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-502/safe",
+      "control": "safe",
+      "sink_family": "deserialization"
+    },
+    {
+      "case_id": "cwe-502-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-502/unknown",
+      "control": "unknown",
+      "sink_family": "deserialization",
+      "reason_code": "go_cwe_502_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-532-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-532/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "sensitive_data",
+      "rule_id": "IAST.SENSITIVE_DATA.LOG_EXPOSURE"
+    },
+    {
+      "case_id": "cwe-532-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-532/safe",
+      "control": "safe",
+      "sink_family": "sensitive_data"
+    },
+    {
+      "case_id": "cwe-532-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-532/unknown",
+      "control": "unknown",
+      "sink_family": "sensitive_data",
+      "reason_code": "go_cwe_532_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-601-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-601/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "redirect",
+      "rule_id": "IAST.REDIRECT.INJECTION"
+    },
+    {
+      "case_id": "cwe-601-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-601/safe",
+      "control": "safe",
+      "sink_family": "redirect"
+    },
+    {
+      "case_id": "cwe-601-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-601/unknown",
+      "control": "unknown",
+      "sink_family": "redirect",
+      "reason_code": "go_cwe_601_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-611-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-611/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "xml_external_entity",
+      "rule_id": "IAST.XML_EXTERNAL_ENTITY.INJECTION"
+    },
+    {
+      "case_id": "cwe-611-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-611/safe",
+      "control": "safe",
+      "sink_family": "xml_external_entity"
+    },
+    {
+      "case_id": "cwe-611-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-611/unknown",
+      "control": "unknown",
+      "sink_family": "xml_external_entity",
+      "reason_code": "go_cwe_611_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-614-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-614/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "cookie_attributes",
+      "rule_id": "IAST.COOKIE.SECURE_ATTRIBUTE_MISSING"
+    },
+    {
+      "case_id": "cwe-614-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-614/safe",
+      "control": "safe",
+      "sink_family": "cookie_attributes"
+    },
+    {
+      "case_id": "cwe-614-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-614/unknown",
+      "control": "unknown",
+      "sink_family": "cookie_attributes",
+      "reason_code": "go_cwe_614_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-643-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-643/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "xml_query",
+      "rule_id": "IAST.XML_QUERY.INJECTION"
+    },
+    {
+      "case_id": "cwe-643-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-643/safe",
+      "control": "safe",
+      "sink_family": "xml_query"
+    },
+    {
+      "case_id": "cwe-643-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-643/unknown",
+      "control": "unknown",
+      "sink_family": "xml_query",
+      "reason_code": "go_cwe_643_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-776-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-776/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "xml_entity_expansion",
+      "rule_id": "IAST.XML_ENTITY_EXPANSION.INJECTION"
+    },
+    {
+      "case_id": "cwe-776-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-776/safe",
+      "control": "safe",
+      "sink_family": "xml_entity_expansion"
+    },
+    {
+      "case_id": "cwe-776-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-776/unknown",
+      "control": "unknown",
+      "sink_family": "xml_entity_expansion",
+      "reason_code": "go_cwe_776_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-78-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-78/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "process",
+      "rule_id": "IAST.PROCESS.INJECTION"
+    },
+    {
+      "case_id": "cwe-78-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-78/safe",
+      "control": "safe",
+      "sink_family": "process"
+    },
+    {
+      "case_id": "cwe-78-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-78/unknown",
+      "control": "unknown",
+      "sink_family": "process",
+      "reason_code": "go_cwe_78_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-79-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-79/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "http_response",
+      "rule_id": "IAST.XSS.INJECTION"
+    },
+    {
+      "case_id": "cwe-79-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-79/safe",
+      "control": "safe",
+      "sink_family": "http_response"
+    },
+    {
+      "case_id": "cwe-79-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-79/unknown",
+      "control": "unknown",
+      "sink_family": "http_response",
+      "reason_code": "go_cwe_79_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-89-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-89/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "sql",
+      "rule_id": "IAST.SQL.INJECTION"
+    },
+    {
+      "case_id": "cwe-89-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-89/safe",
+      "control": "safe",
+      "sink_family": "sql"
+    },
+    {
+      "case_id": "cwe-89-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-89/unknown",
+      "control": "unknown",
+      "sink_family": "sql",
+      "reason_code": "go_cwe_89_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-90-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-90/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "directory_query",
+      "rule_id": "IAST.LDAP.INJECTION"
+    },
+    {
+      "case_id": "cwe-90-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-90/safe",
+      "control": "safe",
+      "sink_family": "directory_query"
+    },
+    {
+      "case_id": "cwe-90-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-90/unknown",
+      "control": "unknown",
+      "sink_family": "directory_query",
+      "reason_code": "go_cwe_90_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-918-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-918/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "outbound_http",
+      "rule_id": "IAST.OUTBOUND_HTTP.INJECTION"
+    },
+    {
+      "case_id": "cwe-918-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-918/safe",
+      "control": "safe",
+      "sink_family": "outbound_http"
+    },
+    {
+      "case_id": "cwe-918-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-918/unknown",
+      "control": "unknown",
+      "sink_family": "outbound_http",
+      "reason_code": "go_cwe_918_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-94-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-94/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "code",
+      "rule_id": "IAST.CODE.INJECTION"
+    },
+    {
+      "case_id": "cwe-94-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-94/safe",
+      "control": "safe",
+      "sink_family": "code"
+    },
+    {
+      "case_id": "cwe-94-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-94/unknown",
+      "control": "unknown",
+      "sink_family": "code",
+      "reason_code": "go_cwe_94_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-943-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-943/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "nosql",
+      "rule_id": "IAST.NOSQL.INJECTION"
+    },
+    {
+      "case_id": "cwe-943-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-943/safe",
+      "control": "safe",
+      "sink_family": "nosql"
+    },
+    {
+      "case_id": "cwe-943-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/cwe-943/unknown",
+      "control": "unknown",
+      "sink_family": "nosql",
+      "reason_code": "go_cwe_943_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "go-cgo-boundary-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/go-cgo-boundary/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "cgo_memory",
+      "rule_id": "IAST.GO.CGO_BOUNDARY"
+    },
+    {
+      "case_id": "go-cgo-boundary-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/go-cgo-boundary/safe",
+      "control": "safe",
+      "sink_family": "cgo_memory"
+    },
+    {
+      "case_id": "go-cgo-boundary-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/go-cgo-boundary/unknown",
+      "control": "unknown",
+      "sink_family": "cgo_memory",
+      "reason_code": "go_go_cgo_boundary_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "go-goroutine-leak-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/go-goroutine-leak/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "goroutine_lifecycle",
+      "rule_id": "IAST.GO.GOROUTINE_LEAK"
+    },
+    {
+      "case_id": "go-goroutine-leak-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/go-goroutine-leak/safe",
+      "control": "safe",
+      "sink_family": "goroutine_lifecycle"
+    },
+    {
+      "case_id": "go-goroutine-leak-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/go-goroutine-leak/unknown",
+      "control": "unknown",
+      "sink_family": "goroutine_lifecycle",
+      "reason_code": "go_go_goroutine_leak_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "go-http-body-limit-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/go-http-body-limit/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "http_body",
+      "rule_id": "IAST.GO.HTTP_BODY_LIMIT"
+    },
+    {
+      "case_id": "go-http-body-limit-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/go-http-body-limit/safe",
+      "control": "safe",
+      "sink_family": "http_body"
+    },
+    {
+      "case_id": "go-http-body-limit-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/go-http-body-limit/unknown",
+      "control": "unknown",
+      "sink_family": "http_body",
+      "reason_code": "go_go_http_body_limit_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "go-map-concurrent-access-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/go-map-concurrent-access/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "map_concurrency",
+      "rule_id": "IAST.GO.MAP_CONCURRENT_ACCESS"
+    },
+    {
+      "case_id": "go-map-concurrent-access-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/go-map-concurrent-access/safe",
+      "control": "safe",
+      "sink_family": "map_concurrency"
+    },
+    {
+      "case_id": "go-map-concurrent-access-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/go-map-concurrent-access/unknown",
+      "control": "unknown",
+      "sink_family": "map_concurrency",
+      "reason_code": "go_go_map_concurrent_access_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "go-template-context-confusion-vulnerable",
+      "repository_id": "go-product",
+      "route": "/qualification/go-template-context-confusion/vulnerable",
+      "control": "vulnerable",
+      "sink_family": "template_context",
+      "rule_id": "IAST.GO.TEMPLATE_CONTEXT_CONFUSION"
+    },
+    {
+      "case_id": "go-template-context-confusion-safe",
+      "repository_id": "go-product",
+      "route": "/qualification/go-template-context-confusion/safe",
+      "control": "safe",
+      "sink_family": "template_context"
+    },
+    {
+      "case_id": "go-template-context-confusion-unknown",
+      "repository_id": "go-product",
+      "route": "/qualification/go-template-context-confusion/unknown",
+      "control": "unknown",
+      "sink_family": "template_context",
+      "reason_code": "go_go_template_context_confusion_semantic_coordinate_unresolved"
+    }
+  ],
+  "controller_cases": [
+    {
+      "case_id": "cwe-284-vulnerable",
+      "repository_id": "go-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-284-vulnerable",
+      "expected_decision": "AUTHORIZATION_BYPASS_OBSERVED",
+      "rule_id": "RIG.ACCESS_CONTROL.IMPROPER"
+    },
+    {
+      "case_id": "cwe-284-safe",
+      "repository_id": "go-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-284-safe",
+      "expected_decision": "DENIED_AS_EXPECTED"
+    },
+    {
+      "case_id": "cwe-284-unknown",
+      "repository_id": "go-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "reason_code": "declared_access_policy_required"
+    },
+    {
+      "case_id": "cwe-287-vulnerable",
+      "repository_id": "go-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-287-vulnerable",
+      "expected_decision": "AUTHENTICATION_BYPASS_OBSERVED",
+      "rule_id": "RIG.AUTHENTICATION.IMPROPER"
+    },
+    {
+      "case_id": "cwe-287-safe",
+      "repository_id": "go-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-287-safe",
+      "expected_decision": "AUTHENTICATION_REQUIRED"
+    },
+    {
+      "case_id": "cwe-287-unknown",
+      "repository_id": "go-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "reason_code": "declared_authentication_policy_required"
+    },
+    {
+      "case_id": "cwe-306-vulnerable",
+      "repository_id": "go-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-306-vulnerable",
+      "expected_decision": "AUTHENTICATION_BYPASS_OBSERVED",
+      "rule_id": "RIG.AUTHENTICATION.MISSING"
+    },
+    {
+      "case_id": "cwe-306-safe",
+      "repository_id": "go-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-306-safe",
+      "expected_decision": "AUTHENTICATION_REQUIRED"
+    },
+    {
+      "case_id": "cwe-306-unknown",
+      "repository_id": "go-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "reason_code": "declared_authentication_policy_required"
+    },
+    {
+      "case_id": "cwe-352-vulnerable",
+      "repository_id": "go-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-352-vulnerable",
+      "expected_decision": "CSRF_BYPASS_OBSERVED",
+      "rule_id": "RIG.CSRF.MISSING_OR_INVALID"
+    },
+    {
+      "case_id": "cwe-352-safe",
+      "repository_id": "go-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-352-safe",
+      "expected_decision": "CSRF_ENFORCED"
+    },
+    {
+      "case_id": "cwe-352-unknown",
+      "repository_id": "go-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "reason_code": "declared_csrf_policy_required"
+    },
+    {
+      "case_id": "cwe-362-vulnerable",
+      "repository_id": "go-product",
+      "control": "vulnerable",
+      "report": "WORKFLOW_SECURITY",
+      "test_id": "cwe-362-vulnerable",
+      "expected_decision": "RACE_CONDITION_OBSERVED",
+      "rule_id": "RIG.CONCURRENCY.RACE_CONDITION"
+    },
+    {
+      "case_id": "cwe-362-safe",
+      "repository_id": "go-product",
+      "control": "safe",
+      "report": "WORKFLOW_SECURITY",
+      "test_id": "cwe-362-safe",
+      "expected_decision": "INVARIANT_ENFORCED"
+    },
+    {
+      "case_id": "cwe-362-unknown",
+      "repository_id": "go-product",
+      "control": "unknown",
+      "report": "WORKFLOW_SECURITY",
+      "reason_code": "declared_concurrency_invariant_required"
+    },
+    {
+      "case_id": "cwe-639-vulnerable",
+      "repository_id": "go-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-639-vulnerable",
+      "expected_decision": "CROSS_TENANT_ACCESS_OBSERVED",
+      "rule_id": "RIG.AUTHORIZATION.CROSS_TENANT"
+    },
+    {
+      "case_id": "cwe-639-safe",
+      "repository_id": "go-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-639-safe",
+      "expected_decision": "TENANT_ISOLATION_ENFORCED"
+    },
+    {
+      "case_id": "cwe-639-unknown",
+      "repository_id": "go-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "reason_code": "declared_tenant_policy_required"
+    },
+    {
+      "case_id": "cwe-840-vulnerable",
+      "repository_id": "go-product",
+      "control": "vulnerable",
+      "report": "WORKFLOW_SECURITY",
+      "test_id": "cwe-840-vulnerable",
+      "expected_decision": "BUSINESS_LOGIC_BYPASS_OBSERVED",
+      "rule_id": "RIG.BUSINESS_LOGIC.LIMIT_BYPASS"
+    },
+    {
+      "case_id": "cwe-840-safe",
+      "repository_id": "go-product",
+      "control": "safe",
+      "report": "WORKFLOW_SECURITY",
+      "test_id": "cwe-840-safe",
+      "expected_decision": "INVARIANT_ENFORCED"
+    },
+    {
+      "case_id": "cwe-840-unknown",
+      "repository_id": "go-product",
+      "control": "unknown",
+      "report": "WORKFLOW_SECURITY",
+      "reason_code": "declared_workflow_invariant_required"
+    },
+    {
+      "case_id": "cwe-841-vulnerable",
+      "repository_id": "go-product",
+      "control": "vulnerable",
+      "report": "WORKFLOW_SECURITY",
+      "test_id": "cwe-841-vulnerable",
+      "expected_decision": "FORBIDDEN_SERVICE_INTERACTION_OBSERVED",
+      "rule_id": "RIG.MULTI_SERVICE.FORBIDDEN_INTERACTION"
+    },
+    {
+      "case_id": "cwe-841-safe",
+      "repository_id": "go-product",
+      "control": "safe",
+      "report": "WORKFLOW_SECURITY",
+      "test_id": "cwe-841-safe",
+      "expected_decision": "INTERACTION_DENIED_AS_EXPECTED"
+    },
+    {
+      "case_id": "cwe-841-unknown",
+      "repository_id": "go-product",
+      "control": "unknown",
+      "report": "WORKFLOW_SECURITY",
+      "reason_code": "declared_multi_service_protocol_required"
+    },
+    {
+      "case_id": "cwe-862-vulnerable",
+      "repository_id": "go-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-862-vulnerable",
+      "expected_decision": "AUTHORIZATION_BYPASS_OBSERVED",
+      "rule_id": "RIG.AUTHORIZATION.MISSING"
+    },
+    {
+      "case_id": "cwe-862-safe",
+      "repository_id": "go-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-862-safe",
+      "expected_decision": "DENIED_AS_EXPECTED"
+    },
+    {
+      "case_id": "cwe-862-unknown",
+      "repository_id": "go-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "reason_code": "declared_authorization_policy_required"
+    },
+    {
+      "case_id": "cwe-863-vulnerable",
+      "repository_id": "go-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-863-vulnerable",
+      "expected_decision": "AUTHORIZATION_BYPASS_OBSERVED",
+      "rule_id": "RIG.AUTHORIZATION.INCORRECT"
+    },
+    {
+      "case_id": "cwe-863-safe",
+      "repository_id": "go-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "test_id": "cwe-863-safe",
+      "expected_decision": "DENIED_AS_EXPECTED"
+    },
+    {
+      "case_id": "cwe-863-unknown",
+      "repository_id": "go-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "reason_code": "declared_authorization_policy_required"
+    }
+  ]
+}
