@@ -2,7 +2,7 @@
   "schema_version": "rig-benchmark-go-truth/v2",
   "suite_id": "rig-benchmark-go-v1",
   "suite_state": "QUALIFICATION",
-  "support_policy": "native-runtime/crates/language/data/support-policy-v1.json",
+  "support_policy": "support-policy-v1.json",
   "exact_family": {
     "runtime_coordinates": [
       "go-1.25.12-darwin-arm64",
@@ -26,6 +26,7 @@
     "expected_stdout": "BenchmarkGo language corpus: categories=39 controls=156 vulnerable=39 safe=39 unknown=39 unsupported=39"
   },
   "source_digests": {
+    "support-policy-v1.json": "sha256:52dc6aad00eb37318f4ae3359226c77a0da30ffc660b964e6a303ffe73c8a276",
     "apps/gin-coordinate/go.mod": "sha256:c566f270c4d076ed1286a1aa0c1b595fddf02ad06ba4a936d4540732ea2165ff",
     "apps/gin-coordinate/main.go": "sha256:2a8afbf171a79269a9b0c91b5f288df2b6f5499c62060af3fa65b8339ccfd157",
     "apps/gin-product/.rig.json": "sha256:1e99d5e6217ac9335f29c3ea0ecc06f24c456844dda99f59f1e71e2ee439e6ae",

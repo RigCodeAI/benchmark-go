@@ -31,22 +31,29 @@ overrides. Its raw coverage is intentionally `CANNOT_CERTIFY` because the 29
 UNKNOWN controls are real capability gaps. Qualification becomes `COMPLETE` only
 when the observed gaps exactly equal the locked truth set.
 
-## Run it
+## Run the benchmark-owned components
 
 Build the language corpus:
 
 ```bash
-cd benchmarks/benchmark-go-v1/corpus/language
+cd corpus/language
 GOTOOLCHAIN=go1.25.12 go build \
   -o /tmp/rig-benchmark-go-language-corpus \
   ./cmd/rig-benchmark-go-language-corpus
 ```
 
-Run the ordinary application path:
+Build and test the independent scorer:
 
 ```bash
-cd ../../../..
-rig run benchmarks/benchmark-go-v1/apps/net-http-product
+cd ../..
+cargo test --locked
+```
+
+Product scanners integrate through [`SCANNER-CONTRACT.md`](SCANNER-CONTRACT.md).
+For example, a Rig adapter may run the ordinary application path:
+
+```bash
+rig run apps/net-http-product
 ```
 
 Exercise an unqualified coordinate separately, retaining its machine error record,
@@ -54,23 +61,27 @@ then score the sealed result:
 
 ```bash
 set +e
-rig run benchmarks/benchmark-go-v1/controls/unqualified-coordinate \
+rig run controls/unqualified-coordinate \
   > /tmp/benchmark-go-unsupported-result.json 2>&1
 test "$?" -eq 30
 set -e
 
 rig benchmark-go \
-  --suite benchmarks/benchmark-go-v1 \
+  --suite . \
   --corpus-executable /tmp/rig-benchmark-go-language-corpus \
   --scan-result /path/to/run/go-scan-result.json \
   --unsupported-result /tmp/benchmark-go-unsupported-result.json \
   --projected-evidence-output /path/to/run/product-evidence.json \
+  --output /tmp/rig-adapter-qualification.json
+
+cargo run --release -- score \
+  --evidence /path/to/run/product-evidence.json \
   --output /path/to/run/benchmark-go-qualification.json
 ```
 
-`make test-go-benchmark` runs the checked-in native benchmark gates. A recognized
-call without the declared semantic evidence is an FN, and a finding on a safe case
-is an FP.
+The benchmark-owned scorer—not the scanner—compares observations with truth. A
+recognized call without the declared semantic evidence is an FN, and a finding
+on a safe case is an FP.
 
 ## Promotion status
 
