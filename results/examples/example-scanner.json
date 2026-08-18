@@ -1,0 +1,26 @@
+{
+  "schema_version": "security-benchmark-scanner-results/v1",
+  "benchmark_id": "rig-benchmark-go-v1",
+  "tool": {
+    "name": "ExampleScanner",
+    "version": "1.0.0",
+    "kind": "OTHER"
+  },
+  "findings": [
+    {
+      "category": "CWE-89",
+      "route": "/qualification/cwe-89/vulnerable",
+      "rule_id": "EXAMPLE.SQL"
+    },
+    {
+      "category": "CWE-79",
+      "route": "/qualification/cwe-79/vulnerable",
+      "rule_id": "EXAMPLE.XSS"
+    },
+    {
+      "category": "GO-GOROUTINE-LEAK",
+      "route": "/qualification/go-goroutine-leak/vulnerable",
+      "rule_id": "EXAMPLE.GOROUTINE_LEAK"
+    }
+  ]
+}

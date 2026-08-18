@@ -1,0 +1,4 @@
+category,case_id,route,path,line,rule_id
+CWE-89,,/qualification/cwe-89/vulnerable,,,EXAMPLE.SQL
+CWE-79,,/qualification/cwe-79/vulnerable,,,EXAMPLE.XSS
+GO-GOROUTINE-LEAK,,/qualification/go-goroutine-leak/vulnerable,,,EXAMPLE.GOROUTINE_LEAK

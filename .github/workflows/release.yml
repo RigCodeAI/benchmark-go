@@ -1,0 +1,45 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.12"
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - run: ./verifyBenchmark.sh
+      - run: cargo build --release --locked
+      - name: Build release artifacts
+        run: |
+          name="BenchmarkGo-${GITHUB_REF_NAME}"
+          git archive --format=tar --prefix="${name}/" "$GITHUB_SHA" | gzip -n > "${name}.tar.gz"
+          cp target/release/benchmark-go "benchmark-go-${GITHUB_REF_NAME}-linux-x86_64"
+          sha256sum "${name}.tar.gz" "benchmark-go-${GITHUB_REF_NAME}-linux-x86_64" > SHA256SUMS
+      - uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: |
+            BenchmarkGo-${{ github.ref_name }}.tar.gz
+            benchmark-go-${{ github.ref_name }}-linux-x86_64
+            SHA256SUMS
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create "$GITHUB_REF_NAME"
+          "BenchmarkGo-${GITHUB_REF_NAME}.tar.gz"
+          "benchmark-go-${GITHUB_REF_NAME}-linux-x86_64"
+          SHA256SUMS
+          --verify-tag --generate-notes

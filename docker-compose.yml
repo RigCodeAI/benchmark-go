@@ -1,0 +1,23 @@
+services:
+  net-http:
+    build:
+      context: .
+      args:
+        GO_VERSION: 1.25.12
+        BENCHMARK_APP: net-http-product
+    ports:
+      - "127.0.0.1:8080:8080"
+    read_only: true
+    tmpfs:
+      - /home/benchmark
+  gin:
+    build:
+      context: .
+      args:
+        GO_VERSION: 1.26.5
+        BENCHMARK_APP: gin-product
+    ports:
+      - "127.0.0.1:8081:8080"
+    read_only: true
+    tmpfs:
+      - /home/benchmark
