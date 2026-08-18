@@ -19,6 +19,10 @@ jobs:
       - run: cargo fmt --all -- --check
       - run: cargo test --locked
       - run: cargo clippy --locked --all-targets -- -D warnings
+      - run: cargo run --quiet --locked -- verify
+      - run: ./scoreBenchmark.sh --results results/examples/example-sast.sarif --output-dir /tmp/example-scorecard
+      - run: bash -n runBenchmark.sh scoreBenchmark.sh verifyBenchmark.sh
+      - run: jq empty schemas/*.json cases/catalog.json
 
   language-corpus:
     strategy:
@@ -32,3 +36,29 @@ jobs:
           go-version: ${{ matrix.go }}
       - run: go test ./...
         working-directory: corpus/language
+
+  product-applications:
+    strategy:
+      matrix:
+        include:
+          - go: "1.25.12"
+            application: net-http-product
+          - go: "1.26.5"
+            application: net-http-product
+          - go: "1.26.5"
+            application: gin-product
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go }}
+      - run: go test ./...
+        working-directory: apps/${{ matrix.application }}
+
+  containers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build --build-arg GO_VERSION=1.25.12 --build-arg BENCHMARK_APP=net-http-product .
+      - run: docker build --build-arg GO_VERSION=1.26.5 --build-arg BENCHMARK_APP=gin-product .

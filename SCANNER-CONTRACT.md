@@ -1,20 +1,40 @@
-# Scanner contract
+# Scanner contracts
 
-BenchmarkGo is scanner-neutral. A scanner adapter must produce a JSON document
-conforming to `product-evidence-v1.schema.json`; the benchmark-owned scorer is the
-only component permitted to compare those observations with `truth-v1.json`.
+BenchmarkGo has two deliberately separate contracts.
 
-The adapter must bind observations to the exact repository, runtime, framework,
-publication, coverage, transcript, and authenticated-readback coordinates in the
-evidence envelope. It must not read the truth file while scanning. Missing cases
-remain missing and are scored as false negatives or unresolved controls.
+## Public accuracy contract
 
-```console
-cargo run --release -- score \
-  --truth truth-v2.json \
-  --evidence /immutable/scanner-evidence.json \
-  --output /immutable/score.json
+Any scanner may submit SARIF 2.1.0, CSV, or JSON conforming to
+`schemas/scanner-results-v1.schema.json`. Findings identify a standard CWE or
+Go-specific security category and at least one public case identity: route,
+case-bearing repository location, or stable case ID. No Rig
+publication, transcript, runtime coordinate, or evidence grade is required.
+
+```bash
+./scoreBenchmark.sh --results results/my-tool.sarif --output-dir results/my-tool
 ```
 
-`--held-out` may be repeated. `--require-promotion` exits 30 until the score,
-closed-envelope, and independent held-out gates all pass.
+The scorer matches submitted findings to the public case catalog. Absence on a
+vulnerable case is an FN. A finding on a safe case is an FP. Unmapped findings
+are also FP. Duplicate reports do not improve the score.
+
+## High-assurance qualification contract
+
+Products claiming runtime evidence and complete coverage may additionally emit
+`schemas/qualification-evidence-v1.schema.json`. This contract binds observations
+to repository, runtime, framework, publication, coverage, transcripts, and
+authenticated readback. The benchmark-owned scorer alone compares it with truth.
+
+```bash
+cargo run --release --locked -- score \
+  --truth truth-v2.json \
+  --evidence /immutable/scanner-evidence.json \
+  --output /immutable/qualification.json
+```
+
+`--held-out` may be repeated. `--require-promotion` exits 30 until the exact score,
+closed envelope, coordinate matrix, and independent held-out gates pass.
+
+The scanner must never read benchmark truth during analysis. Product adapters may
+read the public catalog, but truth comparison and score calculation remain owned
+by this repository.
