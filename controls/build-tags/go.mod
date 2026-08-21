@@ -1,4 +1,4 @@
-module benchmark.invalid/rig-go-build-tags
+module benchmark.invalid/sivere-go-build-tags
 
 go 1.25.0
 

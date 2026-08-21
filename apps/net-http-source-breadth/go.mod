@@ -1,4 +1,4 @@
-module benchmark.invalid/rig-go-source-breadth
+module benchmark.invalid/sivere-go-source-breadth
 
 go 1.25.0
 

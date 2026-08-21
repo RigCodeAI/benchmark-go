@@ -29,7 +29,7 @@ func structureBound() ProbeResult {
 }
 
 func contextActive() ProbeResult {
-	input := "<script>globalThis.rig=1</script>"
+	input := "<script>globalThis.sivere=1</script>"
 	if strings.Contains("<main>"+input+"</main>", "<script>") {
 		return finding("request bytes remained active in the output context")
 	}
@@ -37,7 +37,7 @@ func contextActive() ProbeResult {
 }
 
 func contextEncoded() ProbeResult {
-	body := html.EscapeString("<script>globalThis.rig=1</script>")
+	body := html.EscapeString("<script>globalThis.sivere=1</script>")
 	if strings.Contains(body, "<script>") {
 		return finding("encoded bytes remained active")
 	}
@@ -94,7 +94,7 @@ func policyEnforced() ProbeResult {
 }
 
 func secretExposed() ProbeResult {
-	secret := "token_rig_secret"
+	secret := "token_sivere_secret"
 	if strings.Contains("debug="+secret, secret) {
 		return finding("a classified secret crossed a public boundary")
 	}
@@ -102,7 +102,7 @@ func secretExposed() ProbeResult {
 }
 
 func secretRedacted() ProbeResult {
-	if strings.Contains("debug=[REDACTED]", "token_rig_secret") {
+	if strings.Contains("debug=[REDACTED]", "token_sivere_secret") {
 		return finding("redaction failed")
 	}
 	return clean("classified data was redacted before the boundary")

@@ -1,4 +1,4 @@
-module benchmark.invalid/rig-go-net-http-product
+module benchmark.invalid/sivere-go-net-http-product
 
 go 1.25.0
 

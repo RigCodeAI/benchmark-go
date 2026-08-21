@@ -1,4 +1,4 @@
-module benchmark.invalid/rig-benchmark-go-language-corpus
+module benchmark.invalid/sivere-benchmark-go-language-corpus
 
 go 1.25.0
 

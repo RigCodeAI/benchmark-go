@@ -1,4 +1,4 @@
-//go:build rig_unknown_feature
+//go:build sivere_unknown_feature
 
 package main
 

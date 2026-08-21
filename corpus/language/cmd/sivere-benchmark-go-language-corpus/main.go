@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	benchmarkgo "benchmark.invalid/rig-benchmark-go-language-corpus"
+	benchmarkgo "benchmark.invalid/sivere-benchmark-go-language-corpus"
 )
 
 func main() {

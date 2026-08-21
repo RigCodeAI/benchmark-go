@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://rig.local/schemas/benchmark-go-product-evidence-v1.json",
+  "$id": "https://sivere.local/schemas/benchmark-go-product-evidence-v1.json",
   "title": "BenchmarkGo product evidence",
   "type": "object",
   "additionalProperties": false,
@@ -13,8 +13,8 @@
     "observations", "evidence_digest"
   ],
   "properties": {
-    "schema_version": {"const": "rig-benchmark-go-product-evidence/v1"},
-    "suite_id": {"const": "rig-benchmark-go-v1"},
+    "schema_version": {"const": "sivere-benchmark-go-product-evidence/v1"},
+    "suite_id": {"const": "sivere-benchmark-go-v1"},
     "layer": {"enum": ["LOCKED", "HELD_OUT"]},
     "repository_id": {"type": "string", "minLength": 1},
     "independent_truth_digest": {"type": ["string", "null"], "pattern": "^sha256:[0-9a-f]{64}$"},

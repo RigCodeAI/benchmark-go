@@ -1,4 +1,4 @@
-module benchmark.invalid/rig-go-gin-coordinate
+module benchmark.invalid/sivere-go-gin-coordinate
 
 go 1.26.0
 

@@ -1,6 +1,6 @@
 {
-  "schema_version": "rig-benchmark-go-truth/v2",
-  "suite_id": "rig-benchmark-go-v1",
+  "schema_version": "sivere-benchmark-go-truth/v2",
+  "suite_id": "sivere-benchmark-go-v1",
   "suite_state": "QUALIFICATION",
   "support_policy": "support-policy-v1.json",
   "exact_family": {
@@ -20,67 +20,70 @@
   "language_corpus": {
     "path": "corpus/language",
     "manifest": "corpus/language/go.mod",
-    "binary": "rig-benchmark-go-language-corpus",
+    "binary": "sivere-benchmark-go-language-corpus",
     "required_categories": 39,
     "controls_per_category": 4,
     "expected_stdout": "BenchmarkGo language corpus: categories=39 controls=156 vulnerable=39 safe=39 unknown=39 unsupported=39"
   },
   "source_digests": {
-    "support-policy-v1.json": "sha256:52dc6aad00eb37318f4ae3359226c77a0da30ffc660b964e6a303ffe73c8a276",
-    "apps/gin-coordinate/go.mod": "sha256:c566f270c4d076ed1286a1aa0c1b595fddf02ad06ba4a936d4540732ea2165ff",
+    "support-policy-v1.json": "sha256:9c4afa5dd105b7e2950e1d4ca0552d3e31bf2bb7682ecbe6ffbee8f99af72928",
+    "schemas/public-scorecard-v1.schema.json": "sha256:b7902688c5d64566cb179bd4eebc02af145a532a548658ad76d0d6d67e81ed0f",
+    "schemas/qualification-evidence-v1.schema.json": "sha256:ee1ae877b28b5da3756c61dd496cdf3d84edeaf11ee86432eddb9b4478296cb6",
+    "schemas/scanner-results-v1.schema.json": "sha256:0dfd38e9cce5f9a57ea7d7bf83aeee15af6b69a260305d0ff686b0a79c3914e4",
+    "apps/gin-coordinate/go.mod": "sha256:3cfa78ff3c4e0ebd5ad359fd220c8092ad168ec4286d27637432b0a7c5f4e044",
     "apps/gin-coordinate/main.go": "sha256:2a8afbf171a79269a9b0c91b5f288df2b6f5499c62060af3fa65b8339ccfd157",
-    "apps/gin-product/.rig.json": "sha256:1e99d5e6217ac9335f29c3ea0ecc06f24c456844dda99f59f1e71e2ee439e6ae",
-    "apps/gin-product/application_test.go": "sha256:ff2599fe9a41b78c33436852ebfd564e12aecb2c401c637db7c097a69fcb844b",
-    "apps/gin-product/cgo_boundary.go": "sha256:c62d6759d6101ef81526fd5001dd29ec58fdcd849c3cec9f04cd1014a9fa891c",
-    "apps/gin-product/controller.go": "sha256:afa7c79fe483f81f7712a84962666ea92836a36ca631d00c482af82c3888bd1b",
-    "apps/gin-product/go.mod": "sha256:534ed4a7595cec1cdf5ad460ca664a23a8827c7690af363b6e02bc0c9ef58178",
+    "apps/gin-product/.sivere.json": "sha256:94e339765b043139f3a3f60eb957d9ea2cb107882646d85572ae5e324f070240",
+    "apps/gin-product/application_test.go": "sha256:66c3ad0a8bac01fd13430ad78f348211f3eece90f8f3a7998892026297afc37a",
+    "apps/gin-product/cgo_boundary.go": "sha256:3033a3df10ba24461f7ebb6feef1729503f9c4f67e35c0baa9042c4e7e53bf69",
+    "apps/gin-product/controller.go": "sha256:208861c55ef14edcdf9181f8a5db86dcc3e29bb53bc7c081f2f3ebfb7971fae1",
+    "apps/gin-product/go.mod": "sha256:377ccbdd10a8a58a752a1aef66ba86b7081b7f0afab301dd95b2b8e1f83c13da",
     "apps/gin-product/go.sum": "sha256:2653d40976ff6cbc2dec9e0e640974836d35c5e45902d194d56d5b995ace1985",
     "apps/gin-product/main.go": "sha256:15377f3a4cfe46d60ef747006695c7ad2815b0d729a5ecc897166318fa3de549",
     "apps/gin-product/routes_explicit.go": "sha256:2170e35d0eb43a1621d27702037d7a58434aa6193492b521181e9f545e04bfa2",
-    "apps/gin-product/semantics.go": "sha256:94ebab3e6363745e58d7fa6cbf774a71d78ff9c47c8164ef48ad2752d869ab9e",
-    "apps/gin-product/sources.go": "sha256:ed7869f411defa6d47f148af86ad858493f223793bad21af5396119575c34790",
-    "apps/net-http-product/.rig.json": "sha256:1e99d5e6217ac9335f29c3ea0ecc06f24c456844dda99f59f1e71e2ee439e6ae",
-    "apps/net-http-product/application_test.go": "sha256:3e391004b0d105ee25a02cb134a35a74d47adc3d9d82de69a9a6bccf36ac7173",
-    "apps/net-http-product/cgo_boundary.go": "sha256:c62d6759d6101ef81526fd5001dd29ec58fdcd849c3cec9f04cd1014a9fa891c",
-    "apps/net-http-product/controller.go": "sha256:81940089ac34ef983ea710cf94ec8a4d781c637984f949b7bd24f8d9dfab7d4e",
-    "apps/net-http-product/go.mod": "sha256:3f54d7fb4f65243a5d7499bb1da2f0237fe12e727aa74cfed435acddebfb71e6",
+    "apps/gin-product/semantics.go": "sha256:cc837a977b5e1fe23e50506db4657928f68e4aec21e107da1ac28a95e6550c2a",
+    "apps/gin-product/sources.go": "sha256:72ef4329318c23e3fab8527330239185d0230e91bb1eb9b2f483eb463703ab5a",
+    "apps/net-http-product/.sivere.json": "sha256:94e339765b043139f3a3f60eb957d9ea2cb107882646d85572ae5e324f070240",
+    "apps/net-http-product/application_test.go": "sha256:059e331373e3a276fdbb3a7f4eb8204236f33b046ea86aeb0710222faa704e0d",
+    "apps/net-http-product/cgo_boundary.go": "sha256:3033a3df10ba24461f7ebb6feef1729503f9c4f67e35c0baa9042c4e7e53bf69",
+    "apps/net-http-product/controller.go": "sha256:2b0be7d5532709910ade5f9ed7f99ff6ab171da767a1361a59149dbf7304649d",
+    "apps/net-http-product/go.mod": "sha256:88847c4d0517bde6fc89d0b5fb416a0bd69e90db8ca76214f28a025baccbf01e",
     "apps/net-http-product/main.go": "sha256:c8ff34a829ba037b502ce5cfd00cbd844f292a1b8f088639e8281a6a479a95eb",
     "apps/net-http-product/routes_explicit.go": "sha256:6e19f86d6c029de610501e93bfb4d0452c28ef6631250f7935145ac0e21c265a",
-    "apps/net-http-product/semantics.go": "sha256:94ebab3e6363745e58d7fa6cbf774a71d78ff9c47c8164ef48ad2752d869ab9e",
-    "apps/net-http-product/sources.go": "sha256:7a96d2e6eb69e992b539138a72c21908d5c68c111f11cda40f054a9697e3af1e",
-    "apps/net-http-source-breadth/go.mod": "sha256:9dfe349cf58543fa01bb44b0ebe0f1823d73b10d74b8e516dabd09265b70fbaa",
-    "apps/net-http-source-breadth/main.go": "sha256:a565205451aaa5851766aac0ff4ebe76ea1ab39d8db3d9e10886848c22afa030",
-    "controls/build-tags/go.mod": "sha256:e74727c48f584d3a51eb0112247dd5829e06ad747ccb44796c7ee75f212162a2",
+    "apps/net-http-product/semantics.go": "sha256:cc837a977b5e1fe23e50506db4657928f68e4aec21e107da1ac28a95e6550c2a",
+    "apps/net-http-product/sources.go": "sha256:a59f45a1a0a0aa26d37f8891bdfa4eb5d80133f34557a4ca9d79af72902d273a",
+    "apps/net-http-source-breadth/go.mod": "sha256:9ba5b347f9cd4b141ac0a5ceb2b4aa309af722ac06e564680e82036243c9d5f9",
+    "apps/net-http-source-breadth/main.go": "sha256:d68418ed4e40453164c0d17739714eb3938f449d773746452691532d9ca0fe20",
+    "controls/build-tags/go.mod": "sha256:ed5783d96108702689e1c02d6d890d34c6b1129d10d54b80bdf9855eb9361004",
     "controls/build-tags/main.go": "sha256:5101a3b7338525739fd8ef7ea1d314d55230c1fa412b608cf5652ab7ec9970e0",
-    "controls/build-tags/optional.go": "sha256:eb5eba1e87a87b9e1fea9db2434cd1580c3fb819ef184c9b8554aa1e79386d02",
-    "controls/cgo-boundary/go.mod": "sha256:a1e18c34ca3065551c3545224877b5b8e8b8fb53f7c61ffb4e37ccf36a259eb1",
+    "controls/build-tags/optional.go": "sha256:669566b20842f6dbce8960025dba0eddc9fa517bc6b7db49012e89556edcc2dc",
+    "controls/cgo-boundary/go.mod": "sha256:3d291e35acbf8af1130b0356c86a22abb17bcc847d863705adf711c5b4b32ef7",
     "controls/cgo-boundary/main.go": "sha256:b4e2762b16a9695daad983808c947042547353512b313f09806bf1c769a09f41",
-    "controls/dynamic-route/go.mod": "sha256:48a36afa442337a3d97aeb276ae259bc0888dbb82be1db571916973cb457b91a",
+    "controls/dynamic-route/go.mod": "sha256:d5ef385b07ac19c9dc8e3a31bd41e68143cba1139df604433a91250a521390b6",
     "controls/dynamic-route/main.go": "sha256:593bd2e7ec03dde37cf289c8c68e5c3bba5fc0fdb54871d2a9ac24004db12fbb",
-    "controls/generate-directive/go.mod": "sha256:fcc09a3724c790c0cbc98bfaf969930f0e40e0b1582417aa9c8bc302e01563f4",
-    "controls/generate-directive/main.go": "sha256:7d250c375a017bc8321265687720a7210ab3e2c2398f0730564b3ffba7f9cf4b",
-    "controls/module-replace/go.mod": "sha256:37e0de9d5493beda5c5ad0035ad7b79d5d6a5239714483f1f56d9687c2520054",
+    "controls/generate-directive/go.mod": "sha256:e4a0c447d13e62b522aa0f4d94980fe1dd09a692107820da35d630e6ca2bcf34",
+    "controls/generate-directive/main.go": "sha256:9eb2d88a41bde2c84c836d7c7a6c0f0dc67387879a0f4d03e0a0812523c327f8",
+    "controls/module-replace/go.mod": "sha256:b0a2cdc89c7803347c7664ac070c57c087eb494cd41162ebb2c399eb956d1f27",
     "controls/module-replace/main.go": "sha256:04a0b4b9ac641b0203c37664b06f162d7c5b3e98bcf427d1bbcc540b0b366ed7",
-    "controls/provider-spoof/go.mod": "sha256:4f9f5ed1e0cb9662da10a2a38a9797f4530a052ad88d3b00fae4d70e311cf4ab",
+    "controls/provider-spoof/go.mod": "sha256:67f526950bc75804ad7d2f662e999b9bf9bc7e4010e54be8dc97629cb3f6ebcf",
     "controls/provider-spoof/main.go": "sha256:c15daf9b1fe5c319efde70aa02d21157ceb95575ae7b57f1e53eb0f104303cdc",
-    "controls/unqualified-coordinate/go.mod": "sha256:4327fee393b3c4aa83d1fa03de3ee04ca168e46beaf9f37f33208198463901e9",
+    "controls/unqualified-coordinate/go.mod": "sha256:8bbbdc22b3e9b2e0b55fc75d570887acd5ab57798671101519cd57bbcd1315d1",
     "controls/unqualified-coordinate/main.go": "sha256:eee7789d67d2236876f82c7980ae072f2a53133503c15108f8a63d4f0ce66ec7",
     "corpus/language/categories_access.go": "sha256:6a176c5923e0a1ed86360ae3902239db02d48490e18999bbfc27f6fb809b7563",
     "corpus/language/categories_availability.go": "sha256:1bdee99e9a351097ab8895a278c1a0d544409adeb4d98bbea7f8671e1e86c9dc",
     "corpus/language/categories_data.go": "sha256:4f7a5d91b40fa82721898992f0d97c4e9b231a206a8917cde0b4c40735bb4b7b",
     "corpus/language/categories_go.go": "sha256:133156d44c0ea0b5007e841d3c300e4f89b5711b132a4ac47fb413be6aef5939",
     "corpus/language/categories_injection.go": "sha256:5361b855e13fa9ee51f78aa2ef378fa072cad6942af7ee7fb5962161391da062",
-    "corpus/language/cmd/rig-benchmark-go-language-corpus/main.go": "sha256:505a08ecf9db5995f0c93404bf90046f53e1142f4ce905551210f82fa7c9d411",
+    "corpus/language/cmd/sivere-benchmark-go-language-corpus/main.go": "sha256:804ba5ad7c87458c1b63b07eff2b476aa0c907a4b9169138078e8f7f2e9a43a3",
     "corpus/language/corpus.go": "sha256:7257012ddb6d9b222ec69093c918eddab900d3de84cfb37300fb8c161f28d9f8",
     "corpus/language/corpus_test.go": "sha256:5a63bf7e4c3cbb88a68b47af684de20a90401338249a2445e7aa2c957d908f9a",
-    "corpus/language/go.mod": "sha256:72d14b39ad81c51f7fc5f5a63364179bfa209a6725ad598a0d238b903d236153",
+    "corpus/language/go.mod": "sha256:a506806dc2222416c455a472cedeae839b8518d3830de1ef679b7a79efe87ecf",
     "corpus/language/model.go": "sha256:7d954962dab672296ee0632f478289293bf2bf1b90e56fe6a156d420af5764fb",
-    "corpus/language/semantics.go": "sha256:1acd95a7fb08d49baffa37b309251fa51827d8008f9089cf358a750f3a6bfdcc",
-    "product-evidence-v1.schema.json": "sha256:5ed6631e0340f4ae30fa6a35cdf7dec97dc03406a21918a2e57537bf445e0bb9",
-    "product/net-http-five/go.mod": "sha256:b343c43e1a6a821b1d73f460261fb06adb2b17d82ad27339690ecf01ab1ba0e8",
+    "corpus/language/semantics.go": "sha256:5c1a4ecc8d951ad4315c07138d05dc5882818c64de4d836698916f0a13514dec",
+    "product-evidence-v1.schema.json": "sha256:ee1ae877b28b5da3756c61dd496cdf3d84edeaf11ee86432eddb9b4478296cb6",
+    "product/net-http-five/go.mod": "sha256:b75bc02fe01ccb349443123cbec6d637633f62875af83a692f4e3c414c4bebca",
     "product/net-http-five/main.go": "sha256:5afbaf697f38ea5d5f3c5fe3d75efae53b5ff8412016854c3e7e172f8c0eaf32",
-    "product/net-http-five/truth-v1.json": "sha256:45481beaff66016298cdbb66c63a8bc672481d99a3d046c670c3083ac3846350",
-    "qualification-report-v2.schema.json": "sha256:080c14dec4d70d983bbe79424f95044f4714b4cce1e90f0d2265b5d2ce416503"
+    "product/net-http-five/truth-v1.json": "sha256:89135068416d46ec2334d324d3b62c7e6c76266ed793de9fcf127dba6728430d",
+    "qualification-report-v2.schema.json": "sha256:10ef64c6547aa7aa8dc38f1098c72ff35fe0ee3a4d2dfcaf020653315f3c47b8"
   },
   "repositories": [
     {
@@ -173,13 +176,13 @@
       "route": "/sources/header",
       "logical_location": "header",
       "transport_location": "header",
-      "field": "x-rig-source"
+      "field": "x-sivere-source"
     },
     {
       "route": "/sources/cookie",
       "logical_location": "cookie",
       "transport_location": "cookie",
-      "field": "rig_source"
+      "field": "sivere_source"
     },
     {
       "route": "/sources/multipart",
@@ -197,13 +200,13 @@
       "route": "/sources/middleware",
       "logical_location": "middleware",
       "transport_location": "header",
-      "field": "x-rig-middleware"
+      "field": "x-sivere-middleware"
     },
     {
       "route": "/sources/context",
       "logical_location": "context",
       "transport_location": "header",
-      "field": "x-rig-context"
+      "field": "x-sivere-context"
     },
     {
       "route": "/sources/principal",
@@ -780,7 +783,7 @@
       "repository_id": "gin-product",
       "expectation": {
         "kind": "FILE_CONTAINS",
-        "path": ".rig.json",
+        "path": ".sivere.json",
         "text": "cwe-841-vulnerable"
       }
     },
@@ -816,7 +819,7 @@
       "repository_id": "generate-directive",
       "expectation": {
         "kind": "FILE_ABSENT",
-        "path": "rig-must-not-execute-generation"
+        "path": "sivere-must-not-execute-generation"
       }
     },
     {
@@ -843,7 +846,7 @@
       "expectation": {
         "kind": "FILE_CONTAINS",
         "path": "optional.go",
-        "text": "go:build rig_unknown_feature"
+        "text": "go:build sivere_unknown_feature"
       }
     },
     {
@@ -889,7 +892,7 @@
       "repository_id": "go-product",
       "expectation": {
         "kind": "FILE_CONTAINS",
-        "path": ".rig.json",
+        "path": ".sivere.json",
         "text": "cwe-841-vulnerable"
       }
     }
@@ -1591,7 +1594,7 @@
       "report": "ACCESS_CONTROL",
       "test_id": "cwe-284-vulnerable",
       "expected_decision": "AUTHORIZATION_BYPASS_OBSERVED",
-      "rule_id": "RIG.ACCESS_CONTROL.IMPROPER"
+      "rule_id": "SIVERE.ACCESS_CONTROL.IMPROPER"
     },
     {
       "case_id": "cwe-284-safe",
@@ -1615,7 +1618,7 @@
       "report": "ACCESS_CONTROL",
       "test_id": "cwe-287-vulnerable",
       "expected_decision": "AUTHENTICATION_BYPASS_OBSERVED",
-      "rule_id": "RIG.AUTHENTICATION.IMPROPER"
+      "rule_id": "SIVERE.AUTHENTICATION.IMPROPER"
     },
     {
       "case_id": "cwe-287-safe",
@@ -1639,7 +1642,7 @@
       "report": "ACCESS_CONTROL",
       "test_id": "cwe-306-vulnerable",
       "expected_decision": "AUTHENTICATION_BYPASS_OBSERVED",
-      "rule_id": "RIG.AUTHENTICATION.MISSING"
+      "rule_id": "SIVERE.AUTHENTICATION.MISSING"
     },
     {
       "case_id": "cwe-306-safe",
@@ -1663,7 +1666,7 @@
       "report": "ACCESS_CONTROL",
       "test_id": "cwe-352-vulnerable",
       "expected_decision": "CSRF_BYPASS_OBSERVED",
-      "rule_id": "RIG.CSRF.MISSING_OR_INVALID"
+      "rule_id": "SIVERE.CSRF.MISSING_OR_INVALID"
     },
     {
       "case_id": "cwe-352-safe",
@@ -1687,7 +1690,7 @@
       "report": "WORKFLOW_SECURITY",
       "test_id": "cwe-362-vulnerable",
       "expected_decision": "RACE_CONDITION_OBSERVED",
-      "rule_id": "RIG.CONCURRENCY.RACE_CONDITION"
+      "rule_id": "SIVERE.CONCURRENCY.RACE_CONDITION"
     },
     {
       "case_id": "cwe-362-safe",
@@ -1711,7 +1714,7 @@
       "report": "ACCESS_CONTROL",
       "test_id": "cwe-639-vulnerable",
       "expected_decision": "CROSS_TENANT_ACCESS_OBSERVED",
-      "rule_id": "RIG.AUTHORIZATION.CROSS_TENANT"
+      "rule_id": "SIVERE.AUTHORIZATION.CROSS_TENANT"
     },
     {
       "case_id": "cwe-639-safe",
@@ -1735,7 +1738,7 @@
       "report": "WORKFLOW_SECURITY",
       "test_id": "cwe-840-vulnerable",
       "expected_decision": "BUSINESS_LOGIC_BYPASS_OBSERVED",
-      "rule_id": "RIG.BUSINESS_LOGIC.LIMIT_BYPASS"
+      "rule_id": "SIVERE.BUSINESS_LOGIC.LIMIT_BYPASS"
     },
     {
       "case_id": "cwe-840-safe",
@@ -1759,7 +1762,7 @@
       "report": "WORKFLOW_SECURITY",
       "test_id": "cwe-841-vulnerable",
       "expected_decision": "FORBIDDEN_SERVICE_INTERACTION_OBSERVED",
-      "rule_id": "RIG.MULTI_SERVICE.FORBIDDEN_INTERACTION"
+      "rule_id": "SIVERE.MULTI_SERVICE.FORBIDDEN_INTERACTION"
     },
     {
       "case_id": "cwe-841-safe",
@@ -1783,7 +1786,7 @@
       "report": "ACCESS_CONTROL",
       "test_id": "cwe-862-vulnerable",
       "expected_decision": "AUTHORIZATION_BYPASS_OBSERVED",
-      "rule_id": "RIG.AUTHORIZATION.MISSING"
+      "rule_id": "SIVERE.AUTHORIZATION.MISSING"
     },
     {
       "case_id": "cwe-862-safe",
@@ -1807,7 +1810,7 @@
       "report": "ACCESS_CONTROL",
       "test_id": "cwe-863-vulnerable",
       "expected_decision": "AUTHORIZATION_BYPASS_OBSERVED",
-      "rule_id": "RIG.AUTHORIZATION.INCORRECT"
+      "rule_id": "SIVERE.AUTHORIZATION.INCORRECT"
     },
     {
       "case_id": "cwe-863-safe",

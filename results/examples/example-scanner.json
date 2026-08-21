@@ -1,6 +1,6 @@
 {
   "schema_version": "security-benchmark-scanner-results/v1",
-  "benchmark_id": "rig-benchmark-go-v1",
+  "benchmark_id": "sivere-benchmark-go-v1",
   "tool": {
     "name": "ExampleScanner",
     "version": "1.0.0",

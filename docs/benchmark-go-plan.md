@@ -12,7 +12,7 @@ BenchmarkGo now has a closed, native qualification system:
 - 87 ordinary product cases, 30 controller cases, 11 source contracts, and 27
   foundation/hostile/coordinate cases;
 - exact truth, schemas, source digests, deterministic replay, and source budgets;
-- an ordinary `rig run` `net/http` application covering request sources, classic
+- an ordinary `sivere run` `net/http` application covering request sources, classic
   injection, semantic properties, sensitive data, Go-specific behavior, and
   stateful controller protocols;
 - native evidence projection and scoring with authenticated/sealed publication.

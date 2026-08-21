@@ -1,4 +1,4 @@
-module benchmark.invalid/rig-go-unqualified-coordinate
+module benchmark.invalid/sivere-go-unqualified-coordinate
 
 go 1.24.0
 

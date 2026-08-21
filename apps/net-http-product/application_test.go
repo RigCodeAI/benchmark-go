@@ -17,17 +17,17 @@ var semanticCategoryIDs = []string{
 }
 
 func TestAllProductControlRoutesAreExecutable(t *testing.T) {
-	t.Cleanup(func() { _ = os.Remove("rig-owned-go-deserialization-effect") })
+	t.Cleanup(func() { _ = os.Remove("sivere-owned-go-deserialization-effect") })
 	handler := applicationHandler()
 	for _, category := range semanticCategoryIDs {
 		for _, control := range []string{"vulnerable", "safe", "unknown"} {
 			t.Run(category+"-"+control, func(t *testing.T) {
-				value := "rig"
+				value := "sivere"
 				if category == "cwe-502" && control == "vulnerable" {
-					value = `{"value":"rig"}`
+					value = `{"value":"sivere"}`
 				}
 				if category == "cwe-918" && control == "vulnerable" {
-					value = "http://127.0.0.1:1/rig"
+					value = "http://127.0.0.1:1/sivere"
 				}
 				request := httptest.NewRequest("GET", "/qualification/"+category+"/"+control+"?secret="+url.QueryEscape(value), nil)
 				response := httptest.NewRecorder()

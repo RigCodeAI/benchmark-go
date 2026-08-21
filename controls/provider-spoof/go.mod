@@ -1,4 +1,4 @@
-module benchmark.invalid/rig-go-provider-spoof
+module benchmark.invalid/sivere-go-provider-spoof
 
 go 1.25.0
 

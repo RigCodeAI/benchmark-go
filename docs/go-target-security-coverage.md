@@ -4,14 +4,14 @@ Status: complete four-coordinate `net/http` and Gin 1.12.0 qualification
 denominators; promotion pending independent evidence, version 5, 2026-08-16
 
 Go applications are native binaries, but they retain the Go runtime for garbage
-collection, scheduling, stacks, maps, channels, and other language services. Rig
+collection, scheduling, stacks, maps, channels, and other language services. Sivere
 does not require an interpreter or a general-purpose attach API. It instruments a
 private source snapshot before compilation and embeds a small observation adapter
 in the resulting native application.
 
 ## Product path
 
-Ordinary `rig run /path/to/project` now owns the Go path end to end:
+Ordinary `sivere run /path/to/project` now owns the Go path end to end:
 
 1. inventory `go.mod` files and main packages without importing or executing the
    repository;
@@ -31,11 +31,11 @@ Ordinary `rig run /path/to/project` now owns the Go path end to end:
 9. seal transcripts, reduce journeys, reconcile coverage, publish developer
    JSON/SARIF/Markdown, and authenticate final readback.
 
-`rig targets` projects every READY Go main package into the same
-`rig-application-inventory/v1` contract used by the CLI, VS Code extension, and
+`sivere targets` projects every READY Go main package into the same
+`sivere-application-inventory/v1` contract used by the CLI, VS Code extension, and
 coding-agent hooks. Go targets use `mode: http`; they no longer depend on Python
 application discovery or appear as `DETECTED_NOT_RUNNABLE` in editor inventory.
-`rig feedback run` binds the native adapter and publication to the exact Git
+`sivere feedback run` binds the native adapter and publication to the exact Git
 snapshot selected by the editor or hook, then imports the authenticated Go result
 through the same daemon gate used for Python. The disposable source-tree digest
 remains separately retained in preparation and build-provenance artifacts.
@@ -60,7 +60,7 @@ retained host coordinates. Gin 1.12.0 on Go 1.26.5 also passed the complete
 official policy supports a release until two
 newer major releases exist, which is why the qualification family contains the
 currently supported 1.25 and 1.26 lines. Exact patch and host evidence is still
-required before Rig grants product authority.
+required before Sivere grants product authority.
 
 ## Category coverage
 
@@ -95,7 +95,7 @@ interactions. Safe controls become TNs only after their exact obligations close.
 The fresh arbitrary-repository command was:
 
 ```bash
-rig run apps/net-http-product
+sivere run apps/net-http-product
 ```
 
 No framework, entry point, mode, or benchmark-only launch path was supplied. The
@@ -126,7 +126,7 @@ Run the native corpus and scorer as documented in the
 The retained Gin command was likewise the ordinary arbitrary-repository path:
 
 ```bash
-rig run apps/gin-product
+sivere run apps/gin-product
 ```
 
 It produced 1,237 planned probes, 1,230 attempted requests, seven exact transport

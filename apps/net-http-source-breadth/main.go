@@ -29,10 +29,10 @@ func jsonSource(writer http.ResponseWriter, request *http.Request) {
 	writeValue(writer, payload.Value)
 }
 func headerSource(writer http.ResponseWriter, request *http.Request) {
-	writeValue(writer, request.Header.Get("X-Rig-Source"))
+	writeValue(writer, request.Header.Get("X-Sivere-Source"))
 }
 func cookieSource(writer http.ResponseWriter, request *http.Request) {
-	cookie, _ := request.Cookie("rig_source")
+	cookie, _ := request.Cookie("sivere_source")
 	if cookie != nil {
 		writeValue(writer, cookie.Value)
 	}
@@ -46,10 +46,10 @@ func bodySource(writer http.ResponseWriter, request *http.Request) {
 	writeValue(writer, string(value))
 }
 func middlewareSource(writer http.ResponseWriter, request *http.Request) {
-	writeValue(writer, request.Header.Get("X-Rig-Middleware"))
+	writeValue(writer, request.Header.Get("X-Sivere-Middleware"))
 }
 func contextSource(writer http.ResponseWriter, request *http.Request) {
-	writeValue(writer, request.Header.Get("X-Rig-Context"))
+	writeValue(writer, request.Header.Get("X-Sivere-Context"))
 }
 func principalSource(writer http.ResponseWriter, request *http.Request) {
 	writeValue(writer, strings.TrimPrefix(request.Header.Get("Authorization"), "Bearer "))

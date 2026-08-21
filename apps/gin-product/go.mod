@@ -1,4 +1,4 @@
-module benchmark.invalid/rig-go-gin-product
+module benchmark.invalid/sivere-go-gin-product
 
 go 1.26.0
 
