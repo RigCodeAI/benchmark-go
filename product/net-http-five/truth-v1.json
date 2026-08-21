@@ -1,5 +1,5 @@
 {
-  "schema_version": "rig-go-truth/v1",
+  "schema_version": "sivere-go-truth/v1",
   "coordinate": {
     "runtime": ["1.25.12", "1.26.5"],
     "framework": "net/http"

@@ -26,9 +26,9 @@ func registerSourceRoutes(mux *http.ServeMux) {
 		_ = json.NewDecoder(r.Body).Decode(&value)
 		observeSource(w, value.Value)
 	})
-	mux.HandleFunc("GET /sources/header", func(w http.ResponseWriter, r *http.Request) { observeSource(w, r.Header.Get("X-Rig-Source")) })
+	mux.HandleFunc("GET /sources/header", func(w http.ResponseWriter, r *http.Request) { observeSource(w, r.Header.Get("X-Sivere-Source")) })
 	mux.HandleFunc("GET /sources/cookie", func(w http.ResponseWriter, r *http.Request) {
-		value, _ := r.Cookie("rig_source")
+		value, _ := r.Cookie("sivere_source")
 		if value != nil {
 			observeSource(w, value.Value)
 		}
@@ -41,8 +41,8 @@ func registerSourceRoutes(mux *http.ServeMux) {
 		value, _ := io.ReadAll(http.MaxBytesReader(w, r.Body, 64<<10))
 		observeSource(w, string(value))
 	})
-	mux.HandleFunc("GET /sources/middleware", func(w http.ResponseWriter, r *http.Request) { observeSource(w, r.Header.Get("X-Rig-Middleware")) })
-	mux.HandleFunc("GET /sources/context", func(w http.ResponseWriter, r *http.Request) { observeSource(w, r.Header.Get("X-Rig-Context")) })
+	mux.HandleFunc("GET /sources/middleware", func(w http.ResponseWriter, r *http.Request) { observeSource(w, r.Header.Get("X-Sivere-Middleware")) })
+	mux.HandleFunc("GET /sources/context", func(w http.ResponseWriter, r *http.Request) { observeSource(w, r.Header.Get("X-Sivere-Context")) })
 	mux.HandleFunc("GET /sources/principal", func(w http.ResponseWriter, r *http.Request) {
 		observeSource(w, strings.TrimPrefix(r.Header.Get("Authorization"), "Bearer "))
 	})

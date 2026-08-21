@@ -1,4 +1,4 @@
-module benchmark.invalid/rig-go-cgo-boundary
+module benchmark.invalid/sivere-go-cgo-boundary
 
 go 1.25.0
 

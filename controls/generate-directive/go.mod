@@ -1,4 +1,4 @@
-module benchmark.invalid/rig-go-generate-directive
+module benchmark.invalid/sivere-go-generate-directive
 
 go 1.25.0
 

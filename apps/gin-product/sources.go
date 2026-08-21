@@ -34,10 +34,10 @@ func registerSourceRoutes(router *gin.Engine) {
 		observeSource(context.Writer, value.Value)
 	})
 	router.GET("/sources/header", func(context *gin.Context) {
-		observeSource(context.Writer, context.GetHeader("X-Rig-Source"))
+		observeSource(context.Writer, context.GetHeader("X-Sivere-Source"))
 	})
 	router.GET("/sources/cookie", func(context *gin.Context) {
-		value, _ := context.Cookie("rig_source")
+		value, _ := context.Cookie("sivere_source")
 		observeSource(context.Writer, value)
 	})
 	router.POST("/sources/multipart", func(context *gin.Context) {
@@ -49,10 +49,10 @@ func registerSourceRoutes(router *gin.Engine) {
 		observeSource(context.Writer, string(value))
 	})
 	router.GET("/sources/middleware", func(context *gin.Context) {
-		observeSource(context.Writer, context.GetHeader("X-Rig-Middleware"))
+		observeSource(context.Writer, context.GetHeader("X-Sivere-Middleware"))
 	})
 	router.GET("/sources/context", func(context *gin.Context) {
-		observeSource(context.Writer, context.GetHeader("X-Rig-Context"))
+		observeSource(context.Writer, context.GetHeader("X-Sivere-Context"))
 	})
 	router.GET("/sources/principal", func(context *gin.Context) {
 		observeSource(context.Writer, strings.TrimPrefix(context.GetHeader("Authorization"), "Bearer "))

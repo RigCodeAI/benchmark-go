@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://rig.local/schemas/benchmark-go-report-v2.json",
+  "$id": "https://sivere.local/schemas/benchmark-go-report-v2.json",
   "title": "BenchmarkGo qualification report",
   "type": "object",
   "additionalProperties": false,
@@ -16,8 +16,8 @@
     "promotion_eligible", "reason_codes", "cases", "report_digest"
   ],
   "properties": {
-    "schema_version": {"const": "rig-benchmark-go-report/v2"},
-    "suite_id": {"const": "rig-benchmark-go-v1"},
+    "schema_version": {"const": "sivere-benchmark-go-report/v2"},
+    "suite_id": {"const": "sivere-benchmark-go-v1"},
     "suite_state": {"const": "QUALIFICATION"},
     "truth_digest": {"$ref": "#/$defs/digest"},
     "required_categories": {"const": 39},

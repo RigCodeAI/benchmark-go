@@ -1,4 +1,4 @@
-//go:generate sh -c "touch rig-must-not-execute-generation"
+//go:generate sh -c "touch sivere-must-not-execute-generation"
 
 package main
 

@@ -1,6 +1,6 @@
 schema_version: security-benchmark-metadata/v1
 name: BenchmarkGo
-suite_id: rig-benchmark-go-v1
+suite_id: sivere-benchmark-go-v1
 maintainer: ZeroSurface
 license: MIT
 default_application: net-http

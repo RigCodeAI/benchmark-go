@@ -35,19 +35,19 @@ func registerControllerRoutes(router *gin.Engine) {
 }
 
 func login(writer http.ResponseWriter, request *http.Request) {
-	http.SetCookie(writer, &http.Cookie{Name: "rig_session", Value: request.FormValue("username"), HttpOnly: true})
+	http.SetCookie(writer, &http.Cookie{Name: "sivere_session", Value: request.FormValue("username"), HttpOnly: true})
 	writer.WriteHeader(http.StatusOK)
 }
 
 func csrfToken(writer http.ResponseWriter, _ *http.Request) {
-	http.SetCookie(writer, &http.Cookie{Name: "rig_csrf", Value: "rig-token"})
+	http.SetCookie(writer, &http.Cookie{Name: "sivere_csrf", Value: "sivere-token"})
 	writer.WriteHeader(http.StatusOK)
 }
 
 func csrfVulnerable(writer http.ResponseWriter, _ *http.Request) { writer.WriteHeader(http.StatusOK) }
 
 func csrfSafe(writer http.ResponseWriter, request *http.Request) {
-	if request.Header.Get("X-CSRF-Token") != "rig-token" {
+	if request.Header.Get("X-CSRF-Token") != "sivere-token" {
 		writer.WriteHeader(http.StatusForbidden)
 		return
 	}
@@ -58,7 +58,7 @@ func allow(writer http.ResponseWriter, _ *http.Request) { writer.WriteHeader(htt
 
 func allowIdentity(identity string) http.HandlerFunc {
 	return func(writer http.ResponseWriter, request *http.Request) {
-		cookie, err := request.Cookie("rig_session")
+		cookie, err := request.Cookie("sivere_session")
 		if err != nil || cookie.Value != identity {
 			writer.WriteHeader(http.StatusForbidden)
 			return
@@ -156,12 +156,12 @@ func registerServiceRoutes(router *gin.Engine) {
 func serviceSafe(writer http.ResponseWriter, _ *http.Request) { writer.WriteHeader(http.StatusOK) }
 
 func serviceWitness(writer http.ResponseWriter, request *http.Request) {
-	correlation := request.Header.Get("X-Rig-Protocol-Correlation")
+	correlation := request.Header.Get("X-Sivere-Protocol-Correlation")
 	if correlation == "" {
 		writer.WriteHeader(http.StatusOK)
 		return
 	}
-	origin, capability := os.Getenv("RIG_BILLING_ORIGIN"), os.Getenv("RIG_BILLING_CAPABILITY")
+	origin, capability := os.Getenv("SIVERE_BILLING_ORIGIN"), os.Getenv("SIVERE_BILLING_CAPABILITY")
 	if origin == "" || capability == "" {
 		writer.WriteHeader(http.StatusServiceUnavailable)
 		return
@@ -171,8 +171,8 @@ func serviceWitness(writer http.ResponseWriter, request *http.Request) {
 		writer.WriteHeader(http.StatusBadGateway)
 		return
 	}
-	witnessRequest.Header.Set("X-Rig-Witness-Capability", capability)
-	witnessRequest.Header.Set("X-Rig-Protocol-Correlation", correlation)
+	witnessRequest.Header.Set("X-Sivere-Witness-Capability", capability)
+	witnessRequest.Header.Set("X-Sivere-Protocol-Correlation", correlation)
 	response, err := (&http.Client{Timeout: time.Second}).Do(witnessRequest)
 	if err != nil {
 		writer.WriteHeader(http.StatusBadGateway)

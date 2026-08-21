@@ -1,4 +1,4 @@
-module benchmark.invalid/rig-go-dynamic-route
+module benchmark.invalid/sivere-go-dynamic-route
 
 go 1.25.0
 

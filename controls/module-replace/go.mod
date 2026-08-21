@@ -1,4 +1,4 @@
-module benchmark.invalid/rig-go-module-replace
+module benchmark.invalid/sivere-go-module-replace
 
 go 1.25.0
 

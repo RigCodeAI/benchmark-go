@@ -3,7 +3,7 @@
 Promotion requires at least three independently curated Go repositories that
 are absent from model and adapter development. Together they must contain a
 vulnerable and safe control for every locked BenchmarkGo category, bind their
-truth to an independent SHA-256 digest, run through ordinary `rig run`, and
+truth to an independent SHA-256 digest, run through ordinary `sivere run`, and
 publish `FINAL`/`COMPLETE` authenticated evidence with no failed requests,
 unexpected facts, unresolved obligations, false positives, false negatives,
 or evidence-grade mismatches.

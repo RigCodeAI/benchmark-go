@@ -5,7 +5,7 @@ builds the independent scorer, archives the source at the tagged commit, publish
 `SHA256SUMS`, and requests a GitHub artifact attestation for the artifacts.
 
 Consumers should pin both the tag and commit digest. A release tag alone is not a
-sufficient product qualification identity. Downstream Rig qualification records
+sufficient product qualification identity. Downstream Sivere qualification records
 the immutable benchmark commit and verifies benchmark-owned scoring independently.
 
 The signing/attestation workflow is release infrastructure, not evidence that any

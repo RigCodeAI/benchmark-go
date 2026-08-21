@@ -106,7 +106,7 @@ func httpBodyLimitHandler(bounded bool) http.HandlerFunc {
 func vulnerableSemantic(writer http.ResponseWriter, request *http.Request, category, value string) {
 	switch category {
 	case "cwe-113":
-		writer.Header().Set("X-Rig-Value", value)
+		writer.Header().Set("X-Sivere-Value", value)
 	case "cwe-116":
 		_, _ = writer.Write([]byte(template.HTML(value))) // #nosec G203 -- intentionally unsafe output control.
 	case "cwe-79":
@@ -185,7 +185,7 @@ func vulnerableSemantic(writer http.ResponseWriter, request *http.Request, categ
 func safeSemantic(writer http.ResponseWriter, request *http.Request, category, value string) {
 	switch category {
 	case "cwe-113":
-		writer.Header().Set("X-Rig-Value", strings.NewReplacer("\r", "", "\n", "").Replace(value))
+		writer.Header().Set("X-Sivere-Value", strings.NewReplacer("\r", "", "\n", "").Replace(value))
 	case "cwe-116":
 		_, _ = writer.Write([]byte(html.EscapeString(value)))
 	case "cwe-79":
@@ -204,7 +204,7 @@ func safeSemantic(writer http.ResponseWriter, request *http.Request, category, v
 	case "cwe-532":
 		_, _ = fmt.Printf("%s", "[REDACTED]")
 	case "cwe-22":
-		_, _ = os.ReadFile(filepath.Join(os.TempDir(), "rig-go-safe-file"))
+		_, _ = os.ReadFile(filepath.Join(os.TempDir(), "sivere-go-safe-file"))
 	case "cwe-328":
 		_ = sha256.Sum256([]byte(value))
 	case "cwe-330":
@@ -273,7 +273,7 @@ func (result semanticSQLResult) RowsAffected() (int64, error) { return int64(res
 type effectfulDocument struct{}
 
 func (*effectfulDocument) UnmarshalJSON(document []byte) error {
-	return os.WriteFile("rig-owned-go-deserialization-effect", document, 0o600)
+	return os.WriteFile("sivere-owned-go-deserialization-effect", document, 0o600)
 }
 
 func resourceOperation(value string, bounded bool) string {
@@ -303,7 +303,7 @@ func xmlExternalOperation(value string, protected bool) string {
 	if protected {
 		return "disabled"
 	}
-	return strings.ReplaceAll(value, "&rig;", "RIG_EXTERNAL_EFFECT")
+	return strings.ReplaceAll(value, "&sivere;", "SIVERE_EXTERNAL_EFFECT")
 }
 
 func xmlExpansionOperation(value string, protected bool) string {
