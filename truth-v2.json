@@ -1131,7 +1131,7 @@
       "route": "/qualification/cwe-501/vulnerable",
       "control": "vulnerable",
       "sink_family": "trust_boundary",
-      "rule_id": "IAST.TRUST_BOUNDARY.INJECTION"
+      "rule_id": "IAST.TRUST_BOUNDARY.VIOLATION"
     },
     {
       "case_id": "cwe-501-safe",
@@ -1154,7 +1154,7 @@
       "route": "/qualification/cwe-502/vulnerable",
       "control": "vulnerable",
       "sink_family": "deserialization",
-      "rule_id": "IAST.DESERIALIZATION.INJECTION"
+      "rule_id": "IAST.DESERIALIZATION.UNSAFE"
     },
     {
       "case_id": "cwe-502-safe",
@@ -1200,7 +1200,7 @@
       "route": "/qualification/cwe-601/vulnerable",
       "control": "vulnerable",
       "sink_family": "redirect",
-      "rule_id": "IAST.REDIRECT.INJECTION"
+      "rule_id": "IAST.REDIRECT.UNVALIDATED"
     },
     {
       "case_id": "cwe-601-safe",
@@ -1223,7 +1223,7 @@
       "route": "/qualification/cwe-611/vulnerable",
       "control": "vulnerable",
       "sink_family": "xml_external_entity",
-      "rule_id": "IAST.XML_EXTERNAL_ENTITY.INJECTION"
+      "rule_id": "IAST.XML.EXTERNAL_ENTITY"
     },
     {
       "case_id": "cwe-611-safe",
@@ -1269,7 +1269,7 @@
       "route": "/qualification/cwe-643/vulnerable",
       "control": "vulnerable",
       "sink_family": "xml_query",
-      "rule_id": "IAST.XML_QUERY.INJECTION"
+      "rule_id": "IAST.XPATH.INJECTION"
     },
     {
       "case_id": "cwe-643-safe",
@@ -1292,7 +1292,7 @@
       "route": "/qualification/cwe-776/vulnerable",
       "control": "vulnerable",
       "sink_family": "xml_entity_expansion",
-      "rule_id": "IAST.XML_ENTITY_EXPANSION.INJECTION"
+      "rule_id": "IAST.XML.ENTITY_EXPANSION"
     },
     {
       "case_id": "cwe-776-safe",
@@ -1315,7 +1315,7 @@
       "route": "/qualification/cwe-78/vulnerable",
       "control": "vulnerable",
       "sink_family": "process",
-      "rule_id": "IAST.PROCESS.INJECTION"
+      "rule_id": "IAST.COMMAND.INJECTION"
     },
     {
       "case_id": "cwe-78-safe",

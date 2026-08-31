@@ -55,11 +55,11 @@ cwe-400-vulnerable,CWE-400,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/net-http-
 cwe-400-safe,CWE-400,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/net-http-product,/qualification/cwe-400/safe,/qualification/cwe-400/safe,resource_exhaustion,,
 cwe-400-unknown,CWE-400,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/net-http-product,/qualification/cwe-400/unknown,/qualification/cwe-400/unknown,resource_exhaustion,,go_cwe_400_semantic_coordinate_unresolved
 cwe-400-unsupported,CWE-400,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-501-vulnerable,CWE-501,vulnerable,FINDING,true,RUNTIME_VALUE_FLOW,apps/net-http-product,/qualification/cwe-501/vulnerable,/qualification/cwe-501/vulnerable,trust_boundary,IAST.TRUST_BOUNDARY.INJECTION,
+cwe-501-vulnerable,CWE-501,vulnerable,FINDING,true,RUNTIME_VALUE_FLOW,apps/net-http-product,/qualification/cwe-501/vulnerable,/qualification/cwe-501/vulnerable,trust_boundary,IAST.TRUST_BOUNDARY.VIOLATION,
 cwe-501-safe,CWE-501,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/net-http-product,/qualification/cwe-501/safe,/qualification/cwe-501/safe,trust_boundary,,
 cwe-501-unknown,CWE-501,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/net-http-product,/qualification/cwe-501/unknown,/qualification/cwe-501/unknown,trust_boundary,,go_cwe_501_semantic_coordinate_unresolved
 cwe-501-unsupported,CWE-501,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-502-vulnerable,CWE-502,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/net-http-product,/qualification/cwe-502/vulnerable,/qualification/cwe-502/vulnerable,deserialization,IAST.DESERIALIZATION.INJECTION,
+cwe-502-vulnerable,CWE-502,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/net-http-product,/qualification/cwe-502/vulnerable,/qualification/cwe-502/vulnerable,deserialization,IAST.DESERIALIZATION.UNSAFE,
 cwe-502-safe,CWE-502,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/net-http-product,/qualification/cwe-502/safe,/qualification/cwe-502/safe,deserialization,,
 cwe-502-unknown,CWE-502,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/net-http-product,/qualification/cwe-502/unknown,/qualification/cwe-502/unknown,deserialization,,go_cwe_502_semantic_coordinate_unresolved
 cwe-502-unsupported,CWE-502,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
@@ -67,11 +67,11 @@ cwe-532-vulnerable,CWE-532,vulnerable,FINDING,true,RUNTIME_VALUE_FLOW,apps/net-h
 cwe-532-safe,CWE-532,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/net-http-product,/qualification/cwe-532/safe,/qualification/cwe-532/safe,sensitive_data,,
 cwe-532-unknown,CWE-532,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/net-http-product,/qualification/cwe-532/unknown,/qualification/cwe-532/unknown,sensitive_data,,go_cwe_532_semantic_coordinate_unresolved
 cwe-532-unsupported,CWE-532,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-601-vulnerable,CWE-601,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/net-http-product,/qualification/cwe-601/vulnerable,/qualification/cwe-601/vulnerable,redirect,IAST.REDIRECT.INJECTION,
+cwe-601-vulnerable,CWE-601,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/net-http-product,/qualification/cwe-601/vulnerable,/qualification/cwe-601/vulnerable,redirect,IAST.REDIRECT.UNVALIDATED,
 cwe-601-safe,CWE-601,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/net-http-product,/qualification/cwe-601/safe,/qualification/cwe-601/safe,redirect,,
 cwe-601-unknown,CWE-601,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/net-http-product,/qualification/cwe-601/unknown,/qualification/cwe-601/unknown,redirect,,go_cwe_601_semantic_coordinate_unresolved
 cwe-601-unsupported,CWE-601,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-611-vulnerable,CWE-611,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/net-http-product,/qualification/cwe-611/vulnerable,/qualification/cwe-611/vulnerable,xml_external_entity,IAST.XML_EXTERNAL_ENTITY.INJECTION,
+cwe-611-vulnerable,CWE-611,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/net-http-product,/qualification/cwe-611/vulnerable,/qualification/cwe-611/vulnerable,xml_external_entity,IAST.XML.EXTERNAL_ENTITY,
 cwe-611-safe,CWE-611,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/net-http-product,/qualification/cwe-611/safe,/qualification/cwe-611/safe,xml_external_entity,,
 cwe-611-unknown,CWE-611,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/net-http-product,/qualification/cwe-611/unknown,/qualification/cwe-611/unknown,xml_external_entity,,go_cwe_611_semantic_coordinate_unresolved
 cwe-611-unsupported,CWE-611,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
@@ -83,15 +83,15 @@ cwe-639-vulnerable,CWE-639,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/net
 cwe-639-safe,CWE-639,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/net-http-product,,cwe-639-safe,ACCESS_CONTROL,,
 cwe-639-unknown,CWE-639,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/net-http-product,,apps/net-http-product,ACCESS_CONTROL,,declared_tenant_policy_required
 cwe-639-unsupported,CWE-639,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-643-vulnerable,CWE-643,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/net-http-product,/qualification/cwe-643/vulnerable,/qualification/cwe-643/vulnerable,xml_query,IAST.XML_QUERY.INJECTION,
+cwe-643-vulnerable,CWE-643,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/net-http-product,/qualification/cwe-643/vulnerable,/qualification/cwe-643/vulnerable,xml_query,IAST.XPATH.INJECTION,
 cwe-643-safe,CWE-643,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/net-http-product,/qualification/cwe-643/safe,/qualification/cwe-643/safe,xml_query,,
 cwe-643-unknown,CWE-643,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/net-http-product,/qualification/cwe-643/unknown,/qualification/cwe-643/unknown,xml_query,,go_cwe_643_semantic_coordinate_unresolved
 cwe-643-unsupported,CWE-643,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-776-vulnerable,CWE-776,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/net-http-product,/qualification/cwe-776/vulnerable,/qualification/cwe-776/vulnerable,xml_entity_expansion,IAST.XML_ENTITY_EXPANSION.INJECTION,
+cwe-776-vulnerable,CWE-776,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/net-http-product,/qualification/cwe-776/vulnerable,/qualification/cwe-776/vulnerable,xml_entity_expansion,IAST.XML.ENTITY_EXPANSION,
 cwe-776-safe,CWE-776,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/net-http-product,/qualification/cwe-776/safe,/qualification/cwe-776/safe,xml_entity_expansion,,
 cwe-776-unknown,CWE-776,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/net-http-product,/qualification/cwe-776/unknown,/qualification/cwe-776/unknown,xml_entity_expansion,,go_cwe_776_semantic_coordinate_unresolved
 cwe-776-unsupported,CWE-776,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-78-vulnerable,CWE-78,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/net-http-product,/qualification/cwe-78/vulnerable,/qualification/cwe-78/vulnerable,process,IAST.PROCESS.INJECTION,
+cwe-78-vulnerable,CWE-78,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/net-http-product,/qualification/cwe-78/vulnerable,/qualification/cwe-78/vulnerable,process,IAST.COMMAND.INJECTION,
 cwe-78-safe,CWE-78,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/net-http-product,/qualification/cwe-78/safe,/qualification/cwe-78/safe,process,,
 cwe-78-unknown,CWE-78,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/net-http-product,/qualification/cwe-78/unknown,/qualification/cwe-78/unknown,process,,go_cwe_78_semantic_coordinate_unresolved
 cwe-78-unsupported,CWE-78,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
