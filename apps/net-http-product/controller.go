@@ -4,11 +4,12 @@ import (
 	"net/http"
 	"os"
 	"sync"
+	"sync/atomic"
 	"time"
 )
 
 var storeMutex sync.Mutex
-var raceClaims int
+var raceClaims atomic.Int64
 var workflowExecutions int
 
 func registerControllerRoutes(mux *http.ServeMux) {
@@ -106,32 +107,25 @@ func registerRaceRoutes(mux *http.ServeMux) {
 }
 
 func raceReset(writer http.ResponseWriter, _ *http.Request) {
-	storeMutex.Lock()
-	raceClaims = 0
-	storeMutex.Unlock()
+	raceClaims.Store(0)
 	writer.WriteHeader(http.StatusNoContent)
 }
 
 func raceSafeClaim(writer http.ResponseWriter, _ *http.Request) {
-	storeMutex.Lock()
-	defer storeMutex.Unlock()
-	if raceClaims > 0 {
+	if !raceClaims.CompareAndSwap(0, 1) {
 		writer.WriteHeader(http.StatusConflict)
 		return
 	}
-	raceClaims++
 	writer.WriteHeader(http.StatusOK)
 }
 
 func raceVulnerableClaim(writer http.ResponseWriter, _ *http.Request) {
-	raceClaims++
+	raceClaims.Add(1)
 	writer.WriteHeader(http.StatusOK)
 }
 
 func raceSafeOracle(writer http.ResponseWriter, _ *http.Request) {
-	storeMutex.Lock()
-	defer storeMutex.Unlock()
-	if raceClaims > 1 {
+	if raceClaims.Load() > 1 {
 		writer.WriteHeader(http.StatusConflict)
 		return
 	}
@@ -139,7 +133,7 @@ func raceSafeOracle(writer http.ResponseWriter, _ *http.Request) {
 }
 
 func raceVulnerableOracle(writer http.ResponseWriter, _ *http.Request) {
-	if raceClaims > 1 {
+	if raceClaims.Load() > 1 {
 		writer.WriteHeader(http.StatusConflict)
 		return
 	}
